@@ -9,7 +9,6 @@ import 'package:smart_gps_area/features/settings/domain/repositories/settings_re
 import 'package:smart_gps_area/features/settings/domain/usecases/get_settings_usecase.dart';
 import 'package:smart_gps_area/features/settings/domain/usecases/save_settings_usecase.dart';
 import 'package:smart_gps_area/features/settings/presentation/bloc/settings_bloc.dart';
-import 'package:smart_gps_area/injection/injection_container.config.dart';
 
 import 'package:smart_gps_area/features/map_view/data/repositories/map_repository_impl.dart';
 import 'package:smart_gps_area/features/map_view/domain/repositories/map_repository.dart';
@@ -21,6 +20,12 @@ import 'package:smart_gps_area/features/field_measurement/domain/repositories/gp
 import 'package:smart_gps_area/features/field_measurement/presentation/bloc/gps/gps_bloc.dart';
 import 'package:smart_gps_area/features/field_measurement/presentation/bloc/measurement/measurement_bloc.dart';
 import 'package:smart_gps_area/features/field_measurement/domain/usecases/save_field_usecase.dart';
+
+import 'package:smart_gps_area/features/field_history/data/datasources/local/field_local_data_source.dart';
+import 'package:smart_gps_area/features/field_history/data/repositories/field_repository_impl.dart';
+import 'package:smart_gps_area/features/field_history/domain/repositories/field_repository.dart';
+import 'package:smart_gps_area/features/field_history/domain/usecases/field_usecases.dart';
+import 'package:smart_gps_area/features/field_history/presentation/bloc/field_history_bloc.dart';
 
 final getIt = GetIt.instance;
 
@@ -50,7 +55,22 @@ Future<void> configureDependencies() async {
   getIt.registerLazySingleton<GpsRepository>(() => GpsRepositoryImpl());
   getIt.registerFactory(() => GpsBloc(gpsRepository: getIt()));
   getIt.registerFactory(() => MeasurementBloc(areaCalculator: getIt()));
-  getIt.registerFactory(() => const SaveFieldUseCase());
 
-  getIt.init();
+  // Field History & Persistence feature
+  getIt.registerLazySingleton(FieldLocalDataSource.new);
+  getIt.registerLazySingleton<FieldRepository>(
+    () => FieldRepositoryImpl(getIt()),
+  );
+  getIt.registerFactory(() => SaveFieldUseCase(getIt()));
+  getIt.registerFactory(() => GetAllFieldsUseCase(getIt()));
+  getIt.registerFactory(() => GetFieldByIdUseCase(getIt()));
+  getIt.registerFactory(() => DeleteFieldUseCase(getIt()));
+  getIt.registerFactory(() => SearchFieldsUseCase(getIt()));
+  getIt.registerFactory(
+    () => FieldHistoryBloc(
+      getAllFields: getIt(),
+      deleteField: getIt(),
+      searchFields: getIt(),
+    ),
+  );
 }
