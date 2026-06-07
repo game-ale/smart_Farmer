@@ -16,6 +16,11 @@ import 'package:smart_gps_area/features/map_view/domain/repositories/map_reposit
 import 'package:smart_gps_area/features/map_view/domain/usecases/download_map_area_usecase.dart';
 import 'package:smart_gps_area/features/map_view/presentation/bloc/map_bloc.dart';
 
+import 'package:smart_gps_area/features/field_measurement/data/repositories/gps_repository_impl.dart';
+import 'package:smart_gps_area/features/field_measurement/domain/repositories/gps_repository.dart';
+import 'package:smart_gps_area/features/field_measurement/presentation/bloc/gps/gps_bloc.dart';
+import 'package:smart_gps_area/features/field_measurement/presentation/bloc/measurement/measurement_bloc.dart';
+
 final getIt = GetIt.instance;
 
 Future<void> configureDependencies() async {
@@ -39,6 +44,11 @@ Future<void> configureDependencies() async {
   getIt.registerFactory(
     () => MapBloc(downloadMapArea: getIt(), mapRepository: getIt()),
   );
+
+  // Field Measurement (GPS) feature
+  getIt.registerLazySingleton<GpsRepository>(() => GpsRepositoryImpl());
+  getIt.registerFactory(() => GpsBloc(gpsRepository: getIt()));
+  getIt.registerFactory(() => MeasurementBloc(areaCalculator: getIt()));
 
   getIt.init();
 }

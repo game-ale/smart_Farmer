@@ -28,6 +28,15 @@ Phase three implements the Map Integration and Offline capabilities:
 - `MapBloc` implemented to manage download states and cache clear events.
 - Dependencies kept to an absolute minimum by utilizing custom Dart IO solutions.
 
+## Phase Four Status
+
+Phase four implements the core GPS Field Measurement functionality:
+- `Coordinate` domain model introduced for strict mapping.
+- `GpsBloc` implemented to strictly monitor stream accuracy, transitioning between `GpsAccurate` (≤ 5m), `GpsInaccurate` (> 5m), and `GpsSignalLost`.
+- `MeasurementBloc` tracks real-time walking sessions, applying a 3-meter distance filter before appending coordinates to the polygon.
+- Advanced mapping mathematics powered by `maps_toolkit` for live spherical area (m²) and perimeter (m) calculations during walks.
+- Interactive `GpsMeasurementPage` with an Accuracy Badge overlay, Live Polygon Drawing, Auto-Pause mechanisms on poor GPS signal, and Undo controls.
+
 ## Useful Commands
 
 ```sh
