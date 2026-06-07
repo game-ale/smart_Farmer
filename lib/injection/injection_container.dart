@@ -11,6 +11,11 @@ import 'package:smart_gps_area/features/settings/domain/usecases/save_settings_u
 import 'package:smart_gps_area/features/settings/presentation/bloc/settings_bloc.dart';
 import 'package:smart_gps_area/injection/injection_container.config.dart';
 
+import 'package:smart_gps_area/features/map_view/data/repositories/map_repository_impl.dart';
+import 'package:smart_gps_area/features/map_view/domain/repositories/map_repository.dart';
+import 'package:smart_gps_area/features/map_view/domain/usecases/download_map_area_usecase.dart';
+import 'package:smart_gps_area/features/map_view/presentation/bloc/map_bloc.dart';
+
 final getIt = GetIt.instance;
 
 Future<void> configureDependencies() async {
@@ -27,5 +32,13 @@ Future<void> configureDependencies() async {
   getIt.registerFactory(
     () => SettingsBloc(getSettings: getIt(), saveSettings: getIt()),
   );
+
+  // Map feature
+  getIt.registerLazySingleton<MapRepository>(() => MapRepositoryImpl());
+  getIt.registerFactory(() => DownloadMapAreaUseCase(getIt()));
+  getIt.registerFactory(
+    () => MapBloc(downloadMapArea: getIt(), mapRepository: getIt()),
+  );
+
   getIt.init();
 }

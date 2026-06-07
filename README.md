@@ -17,6 +17,17 @@ Phase two implements the Localization & Settings requirements:
 - Unit testing for all Settings layer components
 - `flutter analyze` reports zero issues and CI is green
 
+## Phase Three Status
+
+Phase three implements the Map Integration and Offline capabilities:
+- Custom `OfflineTileProvider` wrapping `path_provider` and `dart:io` for caching OpenStreetMap tiles.
+- 200MB LRU background eviction policy implemented directly in the tile provider.
+- Interactive `MapPage` built using `flutter_map` v6.
+- Real-time GPS dot rendering using `geolocator` stream.
+- Concurrent bounding box tile downloader to save visible areas for offline use.
+- `MapBloc` implemented to manage download states and cache clear events.
+- Dependencies kept to an absolute minimum by utilizing custom Dart IO solutions.
+
 ## Useful Commands
 
 ```sh
