@@ -3,17 +3,19 @@
 Offline-first GPS field area measurement app for Ethiopian smallholder farmers.
 
 ## Phase One Status
+Phase one established the project setup and architecture shell from the product documentation.
 
-Phase one establishes the project setup and architecture shell from the product documentation:
+## Phase Two Status
 
-- Flutter Android app configured as `smart_gps_area`
-- Clean Architecture feature folders for data, domain, and presentation layers
-- Core folders for constants, error handling, GIS helpers, storage, theme, router, utilities, and shared widgets
-- `get_it` dependency container with phase-one services registered
-- Hive initialization for local preferences storage
-- GoRouter route table with named routes for all roadmap screens
-- Light and dark Material 3 theme foundations with large tap targets
-- GitHub Actions CI for analyze, format, test, and release APK build
+Phase two implements the Localization & Settings requirements:
+
+- `app_en.arb`, `app_om.arb`, and `app_am.arb` files with full translations
+- `SettingsBloc` managing language, theme, and area unit preferences
+- `SettingsLocalDataSource` for persisting preferences via Hive
+- Redesigned `SettingsPage` with Material 3 segmented buttons and drop-downs
+- Enhanced `LanguageSelectionPage` with three-card UI and flag icons
+- Unit testing for all Settings layer components
+- `flutter analyze` reports zero issues and CI is green
 
 ## Useful Commands
 

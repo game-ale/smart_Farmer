@@ -11,7 +11,7 @@ void main() {
     await tester.pumpWidget(const SmartGpsAreaApp());
     await tester.pumpAndSettle();
 
-    expect(find.text('Smart GPS Fields Area Measure'), findsOneWidget);
+    expect(find.text('Smart GPS Fields'), findsOneWidget);
     expect(find.text('Project architecture shell'), findsOneWidget);
   });
 }

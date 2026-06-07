@@ -1,0 +1,77 @@
+00:00 +0: loading /home/gemechu/GPS/smart_Farmer/test/features/settings/presentation/bloc/settings_bloc_test.dart
+00:00 +0 -1: loading /home/gemechu/GPS/smart_Farmer/test/features/settings/data/repositories/settings_repository_impl_test.dart [E]
+  Failed to load "/home/gemechu/GPS/smart_Farmer/test/features/settings/data/repositories/settings_repository_impl_test.dart":
+  Compilation failed for testPath=/home/gemechu/GPS/smart_Farmer/test/features/settings/data/repositories/settings_repository_impl_test.dart: Error: Couldn't resolve the package 'mocktail' in 'package:mocktail/mocktail.dart'.
+  test/features/settings/data/repositories/settings_repository_impl_test.dart:3:8: Error: Not found: 'package:mocktail/mocktail.dart'
+  import 'package:mocktail/mocktail.dart';
+         ^
+  test/features/settings/data/repositories/settings_repository_impl_test.dart:8:43: Error: Type 'Mock' not found.
+  class MockSettingsLocalDataSource extends Mock implements SettingsLocalDataSource {}
+                                            ^^^^
+  test/features/settings/data/repositories/settings_repository_impl_test.dart:8:7: Error: The non-abstract class 'MockSettingsLocalDataSource' is missing implementations for these members:
+   - SettingsLocalDataSource.hasSavedLanguage
+   - SettingsLocalDataSource.loadSettings
+   - SettingsLocalDataSource.saveSettings
+  Try to either
+   - provide an implementation,
+   - inherit an implementation from a superclass or mixin,
+   - mark the class as abstract, or
+   - provide a 'noSuchMethod' implementation.
+  class MockSettingsLocalDataSource extends Mock implements SettingsLocalDataSource {}
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  lib/features/settings/data/datasources/local/settings_local_data_source.dart:17:8: Context: 'SettingsLocalDataSource.hasSavedLanguage' is defined here.
+    bool hasSavedLanguage() => _box.containsKey(_languageCodeKey);
+         ^^^^^^^^^^^^^^^^
+  lib/features/settings/data/datasources/local/settings_local_data_source.dart:19:15: Context: 'SettingsLocalDataSource.loadSettings' is defined here.
+    AppSettings loadSettings() {
+                ^^^^^^^^^^^^
+  lib/features/settings/data/datasources/local/settings_local_data_source.dart:31:16: Context: 'SettingsLocalDataSource.saveSettings' is defined here.
+    Future<void> saveSettings(AppSettings settings) async {
+                 ^^^^^^^^^^^^
+  test/features/settings/data/repositories/settings_repository_impl_test.dart:20:5: Error: Method not found: 'when'.
+      when(() => mockDataSource.hasSavedLanguage()).thenReturn(true);
+      ^^^^
+  test/features/settings/data/repositories/settings_repository_impl_test.dart:22:5: Error: Method not found: 'verify'.
+      verify(() => mockDataSource.hasSavedLanguage()).called(1);
+      ^^^^^^
+  test/features/settings/data/repositories/settings_repository_impl_test.dart:27:5: Error: Method not found: 'when'.
+      when(() => mockDataSource.loadSettings()).thenReturn(settings);
+      ^^^^
+  test/features/settings/data/repositories/settings_repository_impl_test.dart:30:5: Error: Method not found: 'verify'.
+      verify(() => mockDataSource.loadSettings()).called(1);
+      ^^^^^^
+  test/features/settings/data/repositories/settings_repository_impl_test.dart:40:5: Error: Method not found: 'when'.
+      when(() => mockDataSource.saveSettings(newSettings)).thenAnswer((_) async {});
+      ^^^^
+  test/features/settings/data/repositories/settings_repository_impl_test.dart:43:5: Error: Method not found: 'verify'.
+      verify(() => mockDataSource.saveSettings(newSettings)).called(1);
+      ^^^^^^
+  .
+00:00 +0 -2: loading /home/gemechu/GPS/smart_Farmer/test/features/settings/presentation/bloc/settings_bloc_test.dart [E]
+  Error: The Dart compiler exited unexpectedly.
+  package:flutter_tools/src/base/common.dart 34:3  throwToolExit
+  package:flutter_tools/src/compile.dart 939:11    DefaultResidentCompiler._compile.<fn>
+  dart:async/zone_root.dart 48:47                  _rootRunUnary
+  dart:async/zone.dart 733:19                      _CustomZone.runUnary
+  dart:async/future_impl.dart 948:45               Future._propagateToListeners.handleValueCallback
+  dart:async/future_impl.dart 977:13               Future._propagateToListeners
+  dart:async/future_impl.dart 862:9                Future._propagateToListeners
+  dart:async/future_impl.dart 720:5                Future._completeWithValue
+  dart:async/future_impl.dart 804:7                Future._asyncCompleteWithValue.<fn>
+  dart:async/zone_root.dart 35:13                  _rootRun
+  dart:async/zone.dart 726:19                      _CustomZone.run
+  dart:async/zone.dart 625:7                       _CustomZone.runGuarded
+  dart:async/zone.dart 666:23                      _CustomZone.bindCallbackGuarded.<fn>
+  dart:async/schedule_microtask.dart 40:35         _microtaskLoop
+  dart:async/schedule_microtask.dart 49:5          _startMicrotaskLoop
+  dart:isolate-patch/isolate_patch.dart 127:13     _runPendingImmediateCallback
+  dart:isolate-patch/isolate_patch.dart 194:5      _RawReceivePort._handleMessage
+  
+00:00 +0 -2: /home/gemechu/GPS/smart_Farmer/test/features/settings/presentation/bloc/settings_bloc_test.dart: initial state is correct
+00:00 +1 -2: /home/gemechu/GPS/smart_Farmer/test/features/settings/presentation/bloc/settings_bloc_test.dart: SettingsLanguageChanged updates language
+00:00 +2 -2: /home/gemechu/GPS/smart_Farmer/test/features/settings/presentation/bloc/settings_bloc_test.dart: SettingsThemeModeChanged updates theme mode
+00:00 +3 -2: /home/gemechu/GPS/smart_Farmer/test/features/settings/presentation/bloc/settings_bloc_test.dart: SettingsDefaultUnitChanged updates default unit
+00:08 +4 -2: /home/gemechu/GPS/smart_Farmer/test/widget_test.dart: (setUpAll)
+00:08 +4 -2: /home/gemechu/GPS/smart_Farmer/test/widget_test.dart: launches the phase-one app shell
+00:13 +5 -2: /home/gemechu/GPS/smart_Farmer/test/widget_test.dart: (tearDownAll)
+00:13 +5 -2: Some tests failed.
