@@ -46,7 +46,10 @@ final class AppRouter {
       ),
       GoRoute(
         path: RouteConstants.results,
-        builder: (context, state) => const ResultsPage(),
+        builder: (context, state) {
+          final measurementState = state.extra;
+          return ResultsPage(measurementState: measurementState);
+        },
       ),
       GoRoute(
         path: RouteConstants.fields,

@@ -20,6 +20,7 @@ import 'package:smart_gps_area/features/field_measurement/data/repositories/gps_
 import 'package:smart_gps_area/features/field_measurement/domain/repositories/gps_repository.dart';
 import 'package:smart_gps_area/features/field_measurement/presentation/bloc/gps/gps_bloc.dart';
 import 'package:smart_gps_area/features/field_measurement/presentation/bloc/measurement/measurement_bloc.dart';
+import 'package:smart_gps_area/features/field_measurement/domain/usecases/save_field_usecase.dart';
 
 final getIt = GetIt.instance;
 
@@ -49,6 +50,7 @@ Future<void> configureDependencies() async {
   getIt.registerLazySingleton<GpsRepository>(() => GpsRepositoryImpl());
   getIt.registerFactory(() => GpsBloc(gpsRepository: getIt()));
   getIt.registerFactory(() => MeasurementBloc(areaCalculator: getIt()));
+  getIt.registerFactory(() => const SaveFieldUseCase());
 
   getIt.init();
 }

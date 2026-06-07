@@ -224,7 +224,7 @@ class _ManualMeasurementPageState extends State<ManualMeasurementPage> {
                   onPressed: state.points.length >= 3
                       ? () {
                           _measurementBloc.add(const MeasurementFinished());
-                          context.push(RouteConstants.results);
+                          context.push(RouteConstants.results, extra: state);
                         }
                       : null, // Disabled if < 3 points
                 ),

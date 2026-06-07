@@ -46,6 +46,15 @@ Phase five implements the Manual Measurement Map functionality:
 - Real-time `maps_toolkit` calculation overlay, identical to the GPS flow.
 - Intuitive "Undo" and "Clear All" controls for rapid boundary sketching.
 
+## Phase Six Status
+
+Phase six implements the Area Calculation & Results screen:
+- `FieldEntity` domain model created for structured field data persistence.
+- `UnitConverter` exposes all 5 required units: Square Meters (m²), Hectares (ha), Acres (ac), Timad, and Kert.
+- `ResultsPage` displays a polished dashboard of all unit conversions immediately after finishing a measurement.
+- Save Field flow implemented via a Modal Bottom Sheet with name input and form validation.
+- `SaveFieldUseCase` mocked for now — will be wired to Hive persistence in Phase 7.
+
 ## Useful Commands
 
 ```sh
