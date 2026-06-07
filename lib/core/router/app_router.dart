@@ -30,11 +30,46 @@ final class AppRouter {
       ),
       GoRoute(
         path: RouteConstants.home,
-        builder: (context, state) => const HomePage(),
+        redirect: (context, state) => RouteConstants.measure,
       ),
-      GoRoute(
-        path: RouteConstants.measure,
-        builder: (context, state) => const MeasurePage(),
+      StatefulShellRoute.indexedStack(
+        builder: (context, state, navigationShell) {
+          return HomePage(navigationShell: navigationShell);
+        },
+        branches: [
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                path: RouteConstants.measure,
+                builder: (context, state) => const MeasurePage(),
+              ),
+            ],
+          ),
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                path: RouteConstants.fields,
+                builder: (context, state) => const FieldListPage(),
+              ),
+            ],
+          ),
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                path: RouteConstants.map,
+                builder: (context, state) => const MapPage(),
+              ),
+            ],
+          ),
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                path: RouteConstants.settings,
+                builder: (context, state) => const SettingsPage(),
+              ),
+            ],
+          ),
+        ],
       ),
       GoRoute(
         path: RouteConstants.gpsMeasurement,
@@ -52,21 +87,9 @@ final class AppRouter {
         },
       ),
       GoRoute(
-        path: RouteConstants.fields,
-        builder: (context, state) => const FieldListPage(),
-      ),
-      GoRoute(
         path: RouteConstants.fieldDetail,
         builder: (_, state) =>
             FieldDetailPage(fieldId: state.pathParameters['id'] ?? ''),
-      ),
-      GoRoute(
-        path: RouteConstants.map,
-        builder: (context, state) => const MapPage(),
-      ),
-      GoRoute(
-        path: RouteConstants.settings,
-        builder: (context, state) => const SettingsPage(),
       ),
       GoRoute(
         path: RouteConstants.language,

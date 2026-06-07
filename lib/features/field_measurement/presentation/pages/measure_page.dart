@@ -27,7 +27,7 @@ class MeasurePage extends StatelessWidget {
                   'Physically walk the perimeter of your field. The app will use your location to automatically drop boundary points and calculate the exact area.',
               icon: Icons.directions_walk,
               color: Colors.blue,
-              onTap: () => context.go(RouteConstants.gpsMeasurement),
+              onTap: () => context.push(RouteConstants.gpsMeasurement),
             ),
             const SizedBox(height: 16),
             _MeasurementModeCard(
@@ -36,7 +36,7 @@ class MeasurePage extends StatelessWidget {
                   'Draw the field boundaries yourself by tapping directly on the map. Perfect if you already know your field shape on a satellite view.',
               icon: Icons.touch_app,
               color: Colors.green,
-              onTap: () => context.go(RouteConstants.manualMeasurement),
+              onTap: () => context.push(RouteConstants.manualMeasurement),
             ),
           ],
         ),

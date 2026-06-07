@@ -1,28 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:smart_gps_area/core/constants/route_constants.dart';
 import 'package:smart_gps_area/l10n/app_localizations.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  const HomePage({required this.navigationShell, super.key});
+
+  final StatefulNavigationShell navigationShell;
 
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
 
     return Scaffold(
-      appBar: AppBar(title: Text(l10n.appTitle)),
-      body: Center(child: Text(l10n.homeShellMessage)),
+      body: navigationShell,
       bottomNavigationBar: BottomNavigationBar(
-        currentIndex: 0,
+        currentIndex: navigationShell.currentIndex,
         onTap: (index) {
-          final routes = [
-            RouteConstants.measure,
-            RouteConstants.fields,
-            RouteConstants.map,
-            RouteConstants.settings,
-          ];
-          context.go(routes[index]);
+          navigationShell.goBranch(
+            index,
+            initialLocation: index == navigationShell.currentIndex,
+          );
         },
         items: [
           BottomNavigationBarItem(
