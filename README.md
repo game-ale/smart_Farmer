@@ -37,6 +37,15 @@ Phase four implements the core GPS Field Measurement functionality:
 - Advanced mapping mathematics powered by `maps_toolkit` for live spherical area (m²) and perimeter (m) calculations during walks.
 - Interactive `GpsMeasurementPage` with an Accuracy Badge overlay, Live Polygon Drawing, Auto-Pause mechanisms on poor GPS signal, and Undo controls.
 
+## Phase Five Status
+
+Phase five implements the Manual Measurement Map functionality:
+- `MeasurementBloc` expanded to handle manual point additions, deletions, and clear all events.
+- `ManualMeasurementPage` utilizes `FlutterMap`'s `onTap` coordinate projection to instantly drop precision points.
+- Interactive custom map markers that support immediate tap-to-delete.
+- Real-time `maps_toolkit` calculation overlay, identical to the GPS flow.
+- Intuitive "Undo" and "Clear All" controls for rapid boundary sketching.
+
 ## Useful Commands
 
 ```sh

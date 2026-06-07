@@ -17,6 +17,9 @@ class MeasurementBloc extends Bloc<MeasurementEvent, MeasurementState> {
     on<MeasurementUndoLastPoint>(_onUndoLastPoint);
     on<MeasurementFinished>(_onFinished);
     on<MeasurementReset>(_onReset);
+    on<MeasurementManualPointAdded>(_onManualPointAdded);
+    on<MeasurementManualPointDeleted>(_onManualPointDeleted);
+    on<MeasurementClearAll>(_onClearAll);
   }
 
   final AreaCalculator areaCalculator;
@@ -120,5 +123,64 @@ class MeasurementBloc extends Bloc<MeasurementEvent, MeasurementState> {
 
   void _onReset(MeasurementReset event, Emitter<MeasurementState> emit) {
     emit(const MeasurementState(status: MeasurementStatus.idle));
+  }
+
+  void _onManualPointAdded(
+    MeasurementManualPointAdded event,
+    Emitter<MeasurementState> emit,
+  ) {
+    // Only allow manual points if idle or active. If active, it might be mixed with GPS.
+    final updatedPoints = List<Coordinate>.from(state.points)
+      ..add(event.coordinate);
+
+    double area = 0;
+    double perimeter = 0;
+    if (updatedPoints.length >= 3) {
+      area = areaCalculator.calculateAreaSquareMeters(updatedPoints);
+      perimeter = areaCalculator.calculatePerimeterMeters(updatedPoints);
+    }
+
+    emit(
+      state.copyWith(
+        // Ensure state goes to active if it was idle
+        status: state.status == MeasurementStatus.idle
+            ? MeasurementStatus.active
+            : state.status,
+        points: updatedPoints,
+        areaSqMeters: area,
+        perimeterMeters: perimeter,
+      ),
+    );
+  }
+
+  void _onManualPointDeleted(
+    MeasurementManualPointDeleted event,
+    Emitter<MeasurementState> emit,
+  ) {
+    if (event.index < 0 || event.index >= state.points.length) return;
+
+    final updatedPoints = List<Coordinate>.from(state.points)
+      ..removeAt(event.index);
+
+    double area = 0;
+    double perimeter = 0;
+    if (updatedPoints.length >= 3) {
+      area = areaCalculator.calculateAreaSquareMeters(updatedPoints);
+      perimeter = areaCalculator.calculatePerimeterMeters(updatedPoints);
+    }
+
+    emit(
+      state.copyWith(
+        points: updatedPoints,
+        areaSqMeters: area,
+        perimeterMeters: perimeter,
+      ),
+    );
+  }
+
+  void _onClearAll(MeasurementClearAll event, Emitter<MeasurementState> emit) {
+    emit(
+      state.copyWith(points: const [], areaSqMeters: 0.0, perimeterMeters: 0.0),
+    );
   }
 }

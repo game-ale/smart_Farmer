@@ -38,3 +38,23 @@ final class MeasurementFinished extends MeasurementEvent {
 final class MeasurementReset extends MeasurementEvent {
   const MeasurementReset();
 }
+
+final class MeasurementManualPointAdded extends MeasurementEvent {
+  const MeasurementManualPointAdded(this.coordinate);
+  final Coordinate coordinate;
+
+  @override
+  List<Object?> get props => [coordinate];
+}
+
+final class MeasurementManualPointDeleted extends MeasurementEvent {
+  const MeasurementManualPointDeleted(this.index);
+  final int index;
+
+  @override
+  List<Object?> get props => [index];
+}
+
+final class MeasurementClearAll extends MeasurementEvent {
+  const MeasurementClearAll();
+}
