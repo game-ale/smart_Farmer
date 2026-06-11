@@ -117,7 +117,9 @@ class _FieldDetailPageState extends State<FieldDetailPage> {
                   ),
                   const SizedBox(height: 4),
                   Text(
-                    l10n.measuredOn('${field.createdAt.day}/${field.createdAt.month}/${field.createdAt.year}'),
+                    l10n.measuredOn(
+                      '${field.createdAt.day}/${field.createdAt.month}/${field.createdAt.year}',
+                    ),
                     style: Theme.of(context).textTheme.bodySmall,
                   ),
                   const SizedBox(height: 16),
@@ -125,7 +127,8 @@ class _FieldDetailPageState extends State<FieldDetailPage> {
                   // Unit cards
                   _DetailRow(
                     label: l10n.unitSquareMeters,
-                    value: '${field.areaSqMeters.toStringAsFixed(2)} ${l10n.unitShortSqm}',
+                    value:
+                        '${field.areaSqMeters.toStringAsFixed(2)} ${l10n.unitShortSqm}',
                   ),
                   _DetailRow(
                     label: l10n.unitHectares,

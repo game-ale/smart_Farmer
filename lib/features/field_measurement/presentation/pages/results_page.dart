@@ -218,9 +218,7 @@ class ResultsPage extends StatelessWidget {
                           ..hideCurrentSnackBar()
                           ..showSnackBar(
                             SnackBar(
-                              content: Text(
-                                l10n.fieldSavedSuccess(field.name),
-                              ),
+                              content: Text(l10n.fieldSavedSuccess(field.name)),
                             ),
                           );
                         context.go(RouteConstants.home);

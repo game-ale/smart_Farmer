@@ -75,9 +75,9 @@ class _MapPageState extends State<MapPage> {
         16.0,
       );
     } else {
-      ScaffoldMessenger.of(
-        context,
-      ).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context)!.waitingForGps)));
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(AppLocalizations.of(context)!.waitingForGps)),
+      );
     }
   }
 

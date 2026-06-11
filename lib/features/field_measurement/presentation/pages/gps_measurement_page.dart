@@ -48,9 +48,7 @@ class _GpsMeasurementPageState extends State<GpsMeasurementPage> {
         _isAutoPause = false;
         ScaffoldMessenger.of(context)
           ..hideCurrentSnackBar()
-          ..showSnackBar(
-            SnackBar(content: Text(l10n.gpsSignalRestored)),
-          );
+          ..showSnackBar(SnackBar(content: Text(l10n.gpsSignalRestored)));
       }
 
       // Pass coordinate to measurement bloc
@@ -318,10 +316,12 @@ class _AccuracyBadge extends StatelessWidget {
 
         if (state is GpsAccurate) {
           color = Colors.green;
-          text = '${l10n.gpsGood} (${state.coordinate.accuracy?.toStringAsFixed(1)}m)';
+          text =
+              '${l10n.gpsGood} (${state.coordinate.accuracy?.toStringAsFixed(1)}m)';
         } else if (state is GpsInaccurate) {
           color = Colors.orange;
-          text = '${l10n.gpsPoor} (${state.coordinate.accuracy?.toStringAsFixed(1)}m)';
+          text =
+              '${l10n.gpsPoor} (${state.coordinate.accuracy?.toStringAsFixed(1)}m)';
         } else if (state is GpsSignalLost) {
           color = Colors.red;
           text = l10n.gpsLost;

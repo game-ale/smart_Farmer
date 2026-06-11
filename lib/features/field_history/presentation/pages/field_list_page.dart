@@ -55,7 +55,9 @@ class _FieldListView extends StatelessWidget {
                 }
 
                 if (state.status == FieldHistoryStatus.error) {
-                  return Center(child: Text('${l10n.error}: ${state.errorMessage}'));
+                  return Center(
+                    child: Text('${l10n.error}: ${state.errorMessage}'),
+                  );
                 }
 
                 if (state.fields.isEmpty) {
@@ -147,9 +149,7 @@ class _FieldCard extends StatelessWidget {
       context: context,
       builder: (dialogContext) => AlertDialog(
         title: Text(l10n.deleteField),
-        content: Text(
-          l10n.deleteFieldConfirm(field.name),
-        ),
+        content: Text(l10n.deleteFieldConfirm(field.name)),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(dialogContext).pop(),
@@ -167,7 +167,10 @@ class _FieldCard extends StatelessWidget {
                   SnackBar(content: Text(l10n.fieldDeleted(field.name))),
                 );
             },
-            child: Text(l10n.delete.toUpperCase(), style: const TextStyle(color: Colors.red)),
+            child: Text(
+              l10n.delete.toUpperCase(),
+              style: const TextStyle(color: Colors.red),
+            ),
           ),
         ],
       ),
