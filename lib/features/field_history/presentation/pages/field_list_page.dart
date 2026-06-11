@@ -6,6 +6,7 @@ import 'package:smart_gps_area/core/gis/unit_converter.dart';
 import 'package:smart_gps_area/features/field_history/presentation/bloc/field_history_bloc.dart';
 import 'package:smart_gps_area/features/field_measurement/domain/entities/field_entity.dart';
 import 'package:smart_gps_area/injection/injection_container.dart';
+import 'package:smart_gps_area/l10n/app_localizations.dart';
 
 class FieldListPage extends StatelessWidget {
   const FieldListPage({super.key});
@@ -24,18 +25,19 @@ class _FieldListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Scaffold(
-      appBar: AppBar(title: const Text('My Fields')),
+      appBar: AppBar(title: Text(l10n.myFields)),
       body: Column(
         children: [
           // Search bar
           Padding(
             padding: const EdgeInsets.all(12.0),
             child: TextField(
-              decoration: const InputDecoration(
-                hintText: 'Search fields...',
-                prefixIcon: Icon(Icons.search),
-                border: OutlineInputBorder(),
+              decoration: InputDecoration(
+                hintText: l10n.searchFields,
+                prefixIcon: const Icon(Icons.search),
+                border: const OutlineInputBorder(),
               ),
               onChanged: (query) {
                 context.read<FieldHistoryBloc>().add(
@@ -53,7 +55,7 @@ class _FieldListView extends StatelessWidget {
                 }
 
                 if (state.status == FieldHistoryStatus.error) {
-                  return Center(child: Text('Error: ${state.errorMessage}'));
+                  return Center(child: Text('${l10n.error}: ${state.errorMessage}'));
                 }
 
                 if (state.fields.isEmpty) {
@@ -71,8 +73,8 @@ class _FieldListView extends StatelessWidget {
                         const SizedBox(height: 16),
                         Text(
                           state.searchQuery.isEmpty
-                              ? 'No saved fields yet.\nMeasure a field to get started!'
-                              : 'No fields matching "${state.searchQuery}"',
+                              ? l10n.noFieldsYet
+                              : l10n.noFieldsMatching(state.searchQuery),
                           textAlign: TextAlign.center,
                           style: Theme.of(context).textTheme.bodyLarge,
                         ),
@@ -105,6 +107,7 @@ class _FieldCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final converter = getIt<UnitConverter>();
     final hectares = converter.toHectares(field.areaSqMeters);
 
@@ -123,7 +126,7 @@ class _FieldCard extends StatelessWidget {
           style: const TextStyle(fontWeight: FontWeight.bold),
         ),
         subtitle: Text(
-          '${hectares.toStringAsFixed(4)} ha  •  ${field.points.length} points',
+          '${hectares.toStringAsFixed(4)} ${l10n.unitShortHa}  •  ${field.points.length} ${l10n.points.toLowerCase()}',
         ),
         trailing: IconButton(
           icon: const Icon(Icons.delete_outline, color: Colors.red),
@@ -139,17 +142,18 @@ class _FieldCard extends StatelessWidget {
   }
 
   void _confirmDelete(BuildContext context, FieldEntity field) {
+    final l10n = AppLocalizations.of(context)!;
     showDialog(
       context: context,
       builder: (dialogContext) => AlertDialog(
-        title: const Text('Delete Field?'),
+        title: Text(l10n.deleteField),
         content: Text(
-          'Are you sure you want to delete "${field.name}"? This action cannot be undone.',
+          l10n.deleteFieldConfirm(field.name),
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(dialogContext).pop(),
-            child: const Text('CANCEL'),
+            child: Text(l10n.cancel.toUpperCase()),
           ),
           TextButton(
             onPressed: () {
@@ -160,10 +164,10 @@ class _FieldCard extends StatelessWidget {
               ScaffoldMessenger.of(context)
                 ..hideCurrentSnackBar()
                 ..showSnackBar(
-                  SnackBar(content: Text('"${field.name}" deleted')),
+                  SnackBar(content: Text(l10n.fieldDeleted(field.name))),
                 );
             },
-            child: const Text('DELETE', style: TextStyle(color: Colors.red)),
+            child: Text(l10n.delete.toUpperCase(), style: const TextStyle(color: Colors.red)),
           ),
         ],
       ),

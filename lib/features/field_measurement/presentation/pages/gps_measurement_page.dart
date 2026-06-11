@@ -8,6 +8,7 @@ import 'package:smart_gps_area/core/gis/offline_tile_provider.dart';
 import 'package:smart_gps_area/features/field_measurement/presentation/bloc/gps/gps_bloc.dart';
 import 'package:smart_gps_area/features/field_measurement/presentation/bloc/measurement/measurement_bloc.dart';
 import 'package:smart_gps_area/injection/injection_container.dart';
+import 'package:smart_gps_area/l10n/app_localizations.dart';
 
 class GpsMeasurementPage extends StatefulWidget {
   const GpsMeasurementPage({super.key});
@@ -39,6 +40,7 @@ class _GpsMeasurementPageState extends State<GpsMeasurementPage> {
   }
 
   void _onGpsStateChanged(BuildContext context, GpsState state) {
+    final l10n = AppLocalizations.of(context)!;
     if (state is GpsAccurate) {
       // Auto resume if it was auto paused
       if (_isAutoPause) {
@@ -47,7 +49,7 @@ class _GpsMeasurementPageState extends State<GpsMeasurementPage> {
         ScaffoldMessenger.of(context)
           ..hideCurrentSnackBar()
           ..showSnackBar(
-            const SnackBar(content: Text('GPS Signal restored. Resumed.')),
+            SnackBar(content: Text(l10n.gpsSignalRestored)),
           );
       }
 
@@ -67,8 +69,8 @@ class _GpsMeasurementPageState extends State<GpsMeasurementPage> {
         ScaffoldMessenger.of(context)
           ..hideCurrentSnackBar()
           ..showSnackBar(
-            const SnackBar(
-              content: Text('Poor GPS Accuracy. Measurement Auto-Paused.'),
+            SnackBar(
+              content: Text(l10n.poorGpsAccuracy),
               backgroundColor: Colors.orange,
             ),
           );
@@ -78,6 +80,7 @@ class _GpsMeasurementPageState extends State<GpsMeasurementPage> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return MultiBlocProvider(
       providers: [
         BlocProvider.value(value: _gpsBloc),
@@ -87,7 +90,7 @@ class _GpsMeasurementPageState extends State<GpsMeasurementPage> {
         listener: _onGpsStateChanged,
         child: Scaffold(
           appBar: AppBar(
-            title: const Text('GPS Measurement'),
+            title: Text(l10n.gpsMeasurement),
             actions: [const _AccuracyBadge()],
           ),
           body: Stack(children: [_buildMap(), _buildMeasurementOverlay()]),
@@ -170,6 +173,7 @@ class _GpsMeasurementPageState extends State<GpsMeasurementPage> {
   Widget _buildMeasurementOverlay() {
     return BlocBuilder<MeasurementBloc, MeasurementState>(
       builder: (context, state) {
+        final l10n = AppLocalizations.of(context)!;
         if (state.points.isEmpty) return const SizedBox.shrink();
 
         return Positioned(
@@ -186,22 +190,22 @@ class _GpsMeasurementPageState extends State<GpsMeasurementPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      const Text(
-                        'Area',
-                        style: TextStyle(fontWeight: FontWeight.bold),
+                      Text(
+                        l10n.area,
+                        style: const TextStyle(fontWeight: FontWeight.bold),
                       ),
-                      Text('\${state.areaSqMeters.toStringAsFixed(2)} m²'),
+                      Text('${state.areaSqMeters.toStringAsFixed(2)} m²'),
                     ],
                   ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      const Text(
-                        'Points',
-                        style: TextStyle(fontWeight: FontWeight.bold),
+                      Text(
+                        l10n.points,
+                        style: const TextStyle(fontWeight: FontWeight.bold),
                       ),
-                      Text('\${state.points.length}'),
+                      Text('${state.points.length}'),
                     ],
                   ),
                 ],
@@ -216,6 +220,7 @@ class _GpsMeasurementPageState extends State<GpsMeasurementPage> {
   Widget _buildBottomControls() {
     return BlocBuilder<MeasurementBloc, MeasurementState>(
       builder: (context, state) {
+        final l10n = AppLocalizations.of(context)!;
         return SafeArea(
           child: Container(
             padding: const EdgeInsets.all(16.0),
@@ -226,7 +231,7 @@ class _GpsMeasurementPageState extends State<GpsMeasurementPage> {
                 if (state.status == MeasurementStatus.idle)
                   ElevatedButton.icon(
                     icon: const Icon(Icons.play_arrow),
-                    label: const Text('START WALKING'),
+                    label: Text(l10n.startWalking),
                     style: ElevatedButton.styleFrom(
                       minimumSize: const Size(double.infinity, 50),
                     ),
@@ -248,8 +253,8 @@ class _GpsMeasurementPageState extends State<GpsMeasurementPage> {
                           ),
                           label: Text(
                             state.status == MeasurementStatus.active
-                                ? 'PAUSE'
-                                : 'RESUME',
+                                ? l10n.pause
+                                : l10n.resume,
                           ),
                           onPressed: () {
                             if (state.status == MeasurementStatus.active) {
@@ -266,7 +271,7 @@ class _GpsMeasurementPageState extends State<GpsMeasurementPage> {
                       Expanded(
                         child: OutlinedButton.icon(
                           icon: const Icon(Icons.undo),
-                          label: const Text('UNDO'),
+                          label: Text(l10n.undo),
                           onPressed: state.points.isEmpty
                               ? null
                               : () => _measurementBloc.add(
@@ -279,7 +284,7 @@ class _GpsMeasurementPageState extends State<GpsMeasurementPage> {
                   const SizedBox(height: 8),
                   ElevatedButton.icon(
                     icon: const Icon(Icons.check),
-                    label: const Text('FINISH'),
+                    label: Text(l10n.finish),
                     style: ElevatedButton.styleFrom(
                       minimumSize: const Size(double.infinity, 50),
                     ),
@@ -305,23 +310,24 @@ class _AccuracyBadge extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return BlocBuilder<GpsBloc, GpsState>(
       builder: (context, state) {
         Color color = Colors.grey;
-        String text = 'Waiting';
+        String text = l10n.gpsWaiting;
 
         if (state is GpsAccurate) {
           color = Colors.green;
-          text = 'Good (\${state.coordinate.accuracy?.toStringAsFixed(1)}m)';
+          text = '${l10n.gpsGood} (${state.coordinate.accuracy?.toStringAsFixed(1)}m)';
         } else if (state is GpsInaccurate) {
           color = Colors.orange;
-          text = 'Poor (\${state.coordinate.accuracy?.toStringAsFixed(1)}m)';
+          text = '${l10n.gpsPoor} (${state.coordinate.accuracy?.toStringAsFixed(1)}m)';
         } else if (state is GpsSignalLost) {
           color = Colors.red;
-          text = 'Lost';
+          text = l10n.gpsLost;
         } else if (state is GpsPermissionDenied) {
           color = Colors.red;
-          text = 'No Permission';
+          text = l10n.gpsNoPermission;
         }
 
         return Padding(

@@ -180,4 +180,182 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get loading => 'Loading…';
+
+  @override
+  String get measurementMode => 'Measurement Mode';
+
+  @override
+  String get howToMeasure => 'How do you want to measure your field?';
+
+  @override
+  String get gpsMeasurementDesc =>
+      'Physically walk the perimeter of your field. The app will use your location to automatically drop boundary points and calculate the exact area.';
+
+  @override
+  String get manualMeasurementDesc =>
+      'Draw the field boundaries yourself by tapping directly on the map. Perfect if you already know your field shape on a satellite view.';
+
+  @override
+  String get area => 'Area';
+
+  @override
+  String get points => 'Points';
+
+  @override
+  String get perimeter => 'Perimeter';
+
+  @override
+  String get startWalking => 'START WALKING';
+
+  @override
+  String get pause => 'PAUSE';
+
+  @override
+  String get resume => 'RESUME';
+
+  @override
+  String get undo => 'UNDO';
+
+  @override
+  String get finish => 'FINISH';
+
+  @override
+  String get clearAll => 'CLEAR ALL';
+
+  @override
+  String get gpsSignalRestored => 'GPS Signal restored. Resumed.';
+
+  @override
+  String get poorGpsAccuracy => 'Poor GPS Accuracy. Measurement Auto-Paused.';
+
+  @override
+  String get gpsWaiting => 'Waiting';
+
+  @override
+  String get gpsGood => 'Good';
+
+  @override
+  String get gpsPoor => 'Poor';
+
+  @override
+  String get gpsLost => 'Lost';
+
+  @override
+  String get gpsNoPermission => 'No Permission';
+
+  @override
+  String get measurementComplete => 'Measurement Complete';
+
+  @override
+  String boundaryPointsRecorded(int count) {
+    return '$count boundary points recorded';
+  }
+
+  @override
+  String get measurementResults => 'Measurement Results';
+
+  @override
+  String get saveField => 'SAVE FIELD';
+
+  @override
+  String get discard => 'DISCARD';
+
+  @override
+  String get saveMeasurement => 'Save Measurement';
+
+  @override
+  String get fieldName => 'Field Name';
+
+  @override
+  String get fieldNameHint => 'e.g. North Farm Plot';
+
+  @override
+  String get fieldNameRequired => 'Please enter a field name';
+
+  @override
+  String fieldSavedSuccess(String name) {
+    return 'Field \"$name\" saved successfully!';
+  }
+
+  @override
+  String get noMeasurementData => 'No measurement data available.';
+
+  @override
+  String get searchFields => 'Search fields...';
+
+  @override
+  String get noFieldsYet =>
+      'No saved fields yet.\nMeasure a field to get started!';
+
+  @override
+  String noFieldsMatching(String query) {
+    return 'No fields matching \"$query\"';
+  }
+
+  @override
+  String get deleteField => 'Delete Field?';
+
+  @override
+  String deleteFieldConfirm(String name) {
+    return 'Are you sure you want to delete \"$name\"? This action cannot be undone.';
+  }
+
+  @override
+  String fieldDeleted(String name) {
+    return '\"$name\" deleted';
+  }
+
+  @override
+  String get fieldNotFound => 'Field not found.';
+
+  @override
+  String measuredOn(String date) {
+    return 'Measured on $date';
+  }
+
+  @override
+  String get boundaryPoints => 'Boundary Points';
+
+  @override
+  String get tapMapInstruction =>
+      'Tap anywhere on the map to add a boundary point. Tap a point to delete it.';
+
+  @override
+  String get waitingForGps => 'Waiting for GPS...';
+
+  @override
+  String get downloadOffline => 'Download visible area for offline use';
+
+  @override
+  String get downloadingMap => 'Downloading Map Area...';
+
+  @override
+  String get onboardingTitle1 => 'Map Your Fields Offline';
+
+  @override
+  String get onboardingDesc1 =>
+      'Measure the exact area of your land without needing an internet connection.';
+
+  @override
+  String get onboardingTitle2 => 'Walk the Perimeter';
+
+  @override
+  String get onboardingDesc2 =>
+      'Use GPS mode to physically walk around your field. The app will automatically drop boundary points and calculate the area.';
+
+  @override
+  String get onboardingTitle3 => 'Tap to Draw Boundaries';
+
+  @override
+  String get onboardingDesc3 =>
+      'Use Manual mode to simply tap the corners of your field on the map to get instant area calculations.';
+
+  @override
+  String get skip => 'SKIP';
+
+  @override
+  String get next => 'NEXT';
+
+  @override
+  String get getStarted => 'GET STARTED';
 }

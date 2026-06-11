@@ -180,4 +180,183 @@ class AppLocalizationsOm extends AppLocalizations {
 
   @override
   String get loading => 'Fe\'aa jira…';
+
+  @override
+  String get measurementMode => 'Haala Safara';
+
+  @override
+  String get howToMeasure => 'Lafa kee akkamitti safaruu barbaadda?';
+
+  @override
+  String get gpsMeasurementDesc =>
+      'Daangaa lafa keetii irra deemii. Appiin bakka kee fayyadamee tuqaalee daangaa kaa\'uun bal\'ina sirrii herrega.';
+
+  @override
+  String get manualMeasurementDesc =>
+      'Daangaa lafa keetii kaartaa irratti tuquun sarari. Boca lafa keetii kaartaa irratti yoo beektu filannoo gaariidha.';
+
+  @override
+  String get area => 'Bal\'ina';
+
+  @override
+  String get points => 'Tuqaalee';
+
+  @override
+  String get perimeter => 'Daangaa';
+
+  @override
+  String get startWalking => 'DEEMSA JALQABI';
+
+  @override
+  String get pause => 'DHAABI';
+
+  @override
+  String get resume => 'ITTI FUFI';
+
+  @override
+  String get undo => 'DEEBISI';
+
+  @override
+  String get finish => 'XUMURI';
+
+  @override
+  String get clearAll => 'HUNDA HAQI';
+
+  @override
+  String get gpsSignalRestored => 'Mallattoon GPS deebi\'e. Itti fufame.';
+
+  @override
+  String get poorGpsAccuracy =>
+      'Sirrinni GPS dadhabaa. Safarri ofumaan dhaabbate.';
+
+  @override
+  String get gpsWaiting => 'Eegaa jira';
+
+  @override
+  String get gpsGood => 'Gaarii';
+
+  @override
+  String get gpsPoor => 'Dadhabaa';
+
+  @override
+  String get gpsLost => 'Badde';
+
+  @override
+  String get gpsNoPermission => 'Hayyama hin jiru';
+
+  @override
+  String get measurementComplete => 'Safarri Xumurame';
+
+  @override
+  String boundaryPointsRecorded(int count) {
+    return 'Tuqaalee daangaa $count galmeeffame';
+  }
+
+  @override
+  String get measurementResults => 'Bu\'aa Safara';
+
+  @override
+  String get saveField => 'LAFA KUUSI';
+
+  @override
+  String get discard => 'GATI';
+
+  @override
+  String get saveMeasurement => 'Safara Kuusi';
+
+  @override
+  String get fieldName => 'Maqaa Lafa';
+
+  @override
+  String get fieldNameHint => 'fkn. Lafa Kaabaa';
+
+  @override
+  String get fieldNameRequired => 'Maqaa lafa galchi';
+
+  @override
+  String fieldSavedSuccess(String name) {
+    return 'Lafti \"$name\" milkaa\'inaan kuufame!';
+  }
+
+  @override
+  String get noMeasurementData => 'Daataan safara hin jiru.';
+
+  @override
+  String get searchFields => 'Lafa barbaadi...';
+
+  @override
+  String get noFieldsYet => 'Lafti kuufame hin jiru.\nSafaruun jalqabi!';
+
+  @override
+  String noFieldsMatching(String query) {
+    return 'Lafti \"$query\" waliin wal simu hin jiru';
+  }
+
+  @override
+  String get deleteField => 'Lafa Haquu?';
+
+  @override
+  String deleteFieldConfirm(String name) {
+    return 'Dhuguma \"$name\" haquu barbaaddaa? Kun deebi\'uu hin danda\'u.';
+  }
+
+  @override
+  String fieldDeleted(String name) {
+    return '\"$name\" haqame';
+  }
+
+  @override
+  String get fieldNotFound => 'Lafti hin argamne.';
+
+  @override
+  String measuredOn(String date) {
+    return 'Guyyaa $date safarame';
+  }
+
+  @override
+  String get boundaryPoints => 'Tuqaalee Daangaa';
+
+  @override
+  String get tapMapInstruction =>
+      'Tuqaa daangaa ida\'uuf kaartaa irratti tuqi. Tuqaa haquuf irra tuqi.';
+
+  @override
+  String get waitingForGps => 'GPS eegaa jira...';
+
+  @override
+  String get downloadOffline =>
+      'Naannoo mul\'atu toora malee fayyadamuuf buufadhu';
+
+  @override
+  String get downloadingMap => 'Kaartaa buufachaa jira...';
+
+  @override
+  String get onboardingTitle1 => 'Lafa Kee Toora Malee Kaartessi';
+
+  @override
+  String get onboardingDesc1 =>
+      'Bal\'ina lafa keetii toora interneetii malee sirriitti safari.';
+
+  @override
+  String get onboardingTitle2 => 'Daangaa Irra Deemi';
+
+  @override
+  String get onboardingDesc2 =>
+      'Haala GPS fayyadamuun daangaa lafa keetii irra deemi. Appiin tuqaalee daangaa ofumaan kaa\'uun bal\'ina herrega.';
+
+  @override
+  String get onboardingTitle3 => 'Tuquun Daangaa Sarari';
+
+  @override
+  String get onboardingDesc3 =>
+      'Haala harkaan fayyadamuun moggaalee lafa keetii kaartaa irratti tuquun bal\'ina battalatti argadhu.';
+
+  @override
+  String get skip => 'IRRA DARBI';
+
+  @override
+  String get next => 'ITTI AANU';
+
+  @override
+  String get getStarted => 'JALQABI';
 }

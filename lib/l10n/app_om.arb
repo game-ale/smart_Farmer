@@ -63,5 +63,67 @@
   "error": "Dogoggora",
   "retry": "Irra deebi'i",
   "noData": "Daataan hin jiru",
-  "loading": "Fe'aa jira…"
+  "loading": "Fe'aa jira…",
+
+  "measurementMode": "Haala Safara",
+  "howToMeasure": "Lafa kee akkamitti safaruu barbaadda?",
+  "gpsMeasurementDesc": "Daangaa lafa keetii irra deemii. Appiin bakka kee fayyadamee tuqaalee daangaa kaa'uun bal'ina sirrii herrega.",
+  "manualMeasurementDesc": "Daangaa lafa keetii kaartaa irratti tuquun sarari. Boca lafa keetii kaartaa irratti yoo beektu filannoo gaariidha.",
+
+  "area": "Bal'ina",
+  "points": "Tuqaalee",
+  "perimeter": "Daangaa",
+  "startWalking": "DEEMSA JALQABI",
+  "pause": "DHAABI",
+  "resume": "ITTI FUFI",
+  "undo": "DEEBISI",
+  "finish": "XUMURI",
+  "clearAll": "HUNDA HAQI",
+
+  "gpsSignalRestored": "Mallattoon GPS deebi'e. Itti fufame.",
+  "poorGpsAccuracy": "Sirrinni GPS dadhabaa. Safarri ofumaan dhaabbate.",
+  "gpsWaiting": "Eegaa jira",
+  "gpsGood": "Gaarii",
+  "gpsPoor": "Dadhabaa",
+  "gpsLost": "Badde",
+  "gpsNoPermission": "Hayyama hin jiru",
+
+  "measurementComplete": "Safarri Xumurame",
+  "boundaryPointsRecorded": "Tuqaalee daangaa {count} galmeeffame",
+  "measurementResults": "Bu'aa Safara",
+  "saveField": "LAFA KUUSI",
+  "discard": "GATI",
+  "saveMeasurement": "Safara Kuusi",
+  "fieldName": "Maqaa Lafa",
+  "fieldNameHint": "fkn. Lafa Kaabaa",
+  "fieldNameRequired": "Maqaa lafa galchi",
+  "fieldSavedSuccess": "Lafti \"{name}\" milkaa'inaan kuufame!",
+  "noMeasurementData": "Daataan safara hin jiru.",
+
+  "searchFields": "Lafa barbaadi...",
+  "noFieldsYet": "Lafti kuufame hin jiru.\nSafaruun jalqabi!",
+  "noFieldsMatching": "Lafti \"{query}\" waliin wal simu hin jiru",
+  "deleteField": "Lafa Haquu?",
+  "deleteFieldConfirm": "Dhuguma \"{name}\" haquu barbaaddaa? Kun deebi'uu hin danda'u.",
+  "fieldDeleted": "\"{name}\" haqame",
+
+  "fieldNotFound": "Lafti hin argamne.",
+  "measuredOn": "Guyyaa {date} safarame",
+  "boundaryPoints": "Tuqaalee Daangaa",
+
+  "tapMapInstruction": "Tuqaa daangaa ida'uuf kaartaa irratti tuqi. Tuqaa haquuf irra tuqi.",
+
+  "waitingForGps": "GPS eegaa jira...",
+  "downloadOffline": "Naannoo mul'atu toora malee fayyadamuuf buufadhu",
+  "downloadingMap": "Kaartaa buufachaa jira...",
+
+  "onboardingTitle1": "Lafa Kee Toora Malee Kaartessi",
+  "onboardingDesc1": "Bal'ina lafa keetii toora interneetii malee sirriitti safari.",
+  "onboardingTitle2": "Daangaa Irra Deemi",
+  "onboardingDesc2": "Haala GPS fayyadamuun daangaa lafa keetii irra deemi. Appiin tuqaalee daangaa ofumaan kaa'uun bal'ina herrega.",
+  "onboardingTitle3": "Tuquun Daangaa Sarari",
+  "onboardingDesc3": "Haala harkaan fayyadamuun moggaalee lafa keetii kaartaa irratti tuquun bal'ina battalatti argadhu.",
+  "skip": "IRRA DARBI",
+  "next": "ITTI AANU",
+  "getStarted": "JALQABI"
 }

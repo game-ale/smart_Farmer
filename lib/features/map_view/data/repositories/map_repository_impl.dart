@@ -60,18 +60,18 @@ class MapRepositoryImpl implements MapRepository {
         chunk.map((tile) async {
           final tilePath = p.join(
             cacheDir.path,
-            '\${tile.z}',
-            '\${tile.x}',
-            '\${tile.y}.png',
+            '${tile.z}',
+            '${tile.x}',
+            '${tile.y}.png',
           );
           final file = File(tilePath);
 
           if (!await file.exists()) {
             try {
               final url = _urlTemplate
-                  .replaceAll('{z}', '\${tile.z}')
-                  .replaceAll('{x}', '\${tile.x}')
-                  .replaceAll('{y}', '\${tile.y}');
+                  .replaceAll('{z}', '${tile.z}')
+                  .replaceAll('{x}', '${tile.x}')
+                  .replaceAll('{y}', '${tile.y}');
 
               final request = await _httpClient.getUrl(Uri.parse(url));
               request.headers.set(

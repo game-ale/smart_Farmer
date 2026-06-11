@@ -7,6 +7,7 @@ import 'package:latlong2/latlong.dart';
 import 'package:smart_gps_area/core/gis/offline_tile_provider.dart';
 import 'package:smart_gps_area/features/map_view/presentation/bloc/map_bloc.dart';
 import 'package:smart_gps_area/injection/injection_container.dart';
+import 'package:smart_gps_area/l10n/app_localizations.dart';
 
 class MapPage extends StatefulWidget {
   const MapPage({super.key});
@@ -76,7 +77,7 @@ class _MapPageState extends State<MapPage> {
     } else {
       ScaffoldMessenger.of(
         context,
-      ).showSnackBar(const SnackBar(content: Text('Waiting for GPS...')));
+      ).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context)!.waitingForGps)));
     }
   }
 
@@ -119,11 +120,11 @@ class _MapPageState extends State<MapPage> {
         builder: (context, state) {
           return Scaffold(
             appBar: AppBar(
-              title: const Text('Map'),
+              title: Text(AppLocalizations.of(context)!.map),
               actions: [
                 IconButton(
                   icon: const Icon(Icons.download),
-                  tooltip: 'Download visible area for offline use',
+                  tooltip: AppLocalizations.of(context)!.downloadOffline,
                   onPressed: state is MapDownloading
                       ? null
                       : () => _downloadVisibleArea(context),
@@ -174,7 +175,7 @@ class _MapPageState extends State<MapPage> {
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            const Text('Downloading Map Area...'),
+                            Text(AppLocalizations.of(context)!.downloadingMap),
                             const SizedBox(height: 8),
                             LinearProgressIndicator(value: state.progress),
                           ],

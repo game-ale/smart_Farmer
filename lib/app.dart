@@ -27,6 +27,7 @@ class SmartGpsAreaApp extends StatelessWidget {
       child: BlocBuilder<SettingsBloc, SettingsState>(
         builder: (context, state) => MaterialApp.router(
           title: AppConstants.appName,
+          debugShowCheckedModeBanner: false,
           theme: AppTheme.light,
           darkTheme: AppTheme.dark,
           themeMode: state.settings.themeMode,

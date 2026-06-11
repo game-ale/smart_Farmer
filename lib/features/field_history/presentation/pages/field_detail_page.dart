@@ -6,6 +6,7 @@ import 'package:smart_gps_area/core/gis/unit_converter.dart';
 import 'package:smart_gps_area/features/field_history/domain/usecases/field_usecases.dart';
 import 'package:smart_gps_area/features/field_measurement/domain/entities/field_entity.dart';
 import 'package:smart_gps_area/injection/injection_container.dart';
+import 'package:smart_gps_area/l10n/app_localizations.dart';
 
 class FieldDetailPage extends StatefulWidget {
   const FieldDetailPage({required this.fieldId, super.key});
@@ -37,9 +38,10 @@ class _FieldDetailPageState extends State<FieldDetailPage> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     if (_loading) {
       return Scaffold(
-        appBar: AppBar(title: const Text('Field Detail')),
+        appBar: AppBar(title: Text(l10n.fieldDetail)),
         body: const Center(child: CircularProgressIndicator()),
       );
     }
@@ -47,8 +49,8 @@ class _FieldDetailPageState extends State<FieldDetailPage> {
     final field = _field;
     if (field == null) {
       return Scaffold(
-        appBar: AppBar(title: const Text('Field Detail')),
-        body: const Center(child: Text('Field not found.')),
+        appBar: AppBar(title: Text(l10n.fieldDetail)),
+        body: Center(child: Text(l10n.fieldNotFound)),
       );
     }
 
@@ -115,43 +117,43 @@ class _FieldDetailPageState extends State<FieldDetailPage> {
                   ),
                   const SizedBox(height: 4),
                   Text(
-                    'Measured on ${field.createdAt.day}/${field.createdAt.month}/${field.createdAt.year}',
+                    l10n.measuredOn('${field.createdAt.day}/${field.createdAt.month}/${field.createdAt.year}'),
                     style: Theme.of(context).textTheme.bodySmall,
                   ),
                   const SizedBox(height: 16),
 
                   // Unit cards
                   _DetailRow(
-                    label: 'Square Meters',
-                    value: '${field.areaSqMeters.toStringAsFixed(2)} m²',
+                    label: l10n.unitSquareMeters,
+                    value: '${field.areaSqMeters.toStringAsFixed(2)} ${l10n.unitShortSqm}',
                   ),
                   _DetailRow(
-                    label: 'Hectares',
+                    label: l10n.unitHectares,
                     value:
-                        '${converter.toHectares(field.areaSqMeters).toStringAsFixed(4)} ha',
+                        '${converter.toHectares(field.areaSqMeters).toStringAsFixed(4)} ${l10n.unitShortHa}',
                   ),
                   _DetailRow(
-                    label: 'Acres',
+                    label: l10n.unitAcres,
                     value:
-                        '${converter.toAcres(field.areaSqMeters).toStringAsFixed(4)} ac',
+                        '${converter.toAcres(field.areaSqMeters).toStringAsFixed(4)} ${l10n.unitShortAcre}',
                   ),
                   _DetailRow(
-                    label: 'Timad',
+                    label: l10n.unitTimad,
                     value:
-                        '${converter.toTimad(field.areaSqMeters).toStringAsFixed(4)} timad',
+                        '${converter.toTimad(field.areaSqMeters).toStringAsFixed(4)} ${l10n.unitShortTimad}',
                   ),
                   _DetailRow(
-                    label: 'Kert',
+                    label: l10n.unitKert,
                     value:
-                        '${converter.toKert(field.areaSqMeters).toStringAsFixed(2)} kert',
+                        '${converter.toKert(field.areaSqMeters).toStringAsFixed(2)} ${l10n.unitShortKert}',
                   ),
                   const Divider(height: 24),
                   _DetailRow(
-                    label: 'Perimeter',
+                    label: l10n.perimeter,
                     value: '${field.perimeterMeters.toStringAsFixed(2)} m',
                   ),
                   _DetailRow(
-                    label: 'Boundary Points',
+                    label: l10n.boundaryPoints,
                     value: '${field.points.length}',
                   ),
                 ],

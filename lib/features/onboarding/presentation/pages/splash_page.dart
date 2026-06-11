@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:smart_gps_area/core/constants/route_constants.dart';
 import 'package:smart_gps_area/core/storage/hive_box_names.dart';
+import 'package:smart_gps_area/l10n/app_localizations.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
@@ -53,6 +54,7 @@ class _SplashPageState extends State<SplashPage>
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.primary,
       body: Center(
@@ -68,7 +70,7 @@ class _SplashPageState extends State<SplashPage>
               ),
               const SizedBox(height: 24),
               Text(
-                'Smart GPS Fields',
+                l10n?.appTitle ?? 'Smart GPS Fields',
                 style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                   color: Theme.of(context).colorScheme.onPrimary,
                   fontWeight: FontWeight.bold,

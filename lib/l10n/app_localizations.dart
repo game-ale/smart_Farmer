@@ -441,6 +441,324 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Loading…'**
   String get loading;
+
+  /// No description provided for @measurementMode.
+  ///
+  /// In en, this message translates to:
+  /// **'Measurement Mode'**
+  String get measurementMode;
+
+  /// No description provided for @howToMeasure.
+  ///
+  /// In en, this message translates to:
+  /// **'How do you want to measure your field?'**
+  String get howToMeasure;
+
+  /// No description provided for @gpsMeasurementDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Physically walk the perimeter of your field. The app will use your location to automatically drop boundary points and calculate the exact area.'**
+  String get gpsMeasurementDesc;
+
+  /// No description provided for @manualMeasurementDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Draw the field boundaries yourself by tapping directly on the map. Perfect if you already know your field shape on a satellite view.'**
+  String get manualMeasurementDesc;
+
+  /// No description provided for @area.
+  ///
+  /// In en, this message translates to:
+  /// **'Area'**
+  String get area;
+
+  /// No description provided for @points.
+  ///
+  /// In en, this message translates to:
+  /// **'Points'**
+  String get points;
+
+  /// No description provided for @perimeter.
+  ///
+  /// In en, this message translates to:
+  /// **'Perimeter'**
+  String get perimeter;
+
+  /// No description provided for @startWalking.
+  ///
+  /// In en, this message translates to:
+  /// **'START WALKING'**
+  String get startWalking;
+
+  /// No description provided for @pause.
+  ///
+  /// In en, this message translates to:
+  /// **'PAUSE'**
+  String get pause;
+
+  /// No description provided for @resume.
+  ///
+  /// In en, this message translates to:
+  /// **'RESUME'**
+  String get resume;
+
+  /// No description provided for @undo.
+  ///
+  /// In en, this message translates to:
+  /// **'UNDO'**
+  String get undo;
+
+  /// No description provided for @finish.
+  ///
+  /// In en, this message translates to:
+  /// **'FINISH'**
+  String get finish;
+
+  /// No description provided for @clearAll.
+  ///
+  /// In en, this message translates to:
+  /// **'CLEAR ALL'**
+  String get clearAll;
+
+  /// No description provided for @gpsSignalRestored.
+  ///
+  /// In en, this message translates to:
+  /// **'GPS Signal restored. Resumed.'**
+  String get gpsSignalRestored;
+
+  /// No description provided for @poorGpsAccuracy.
+  ///
+  /// In en, this message translates to:
+  /// **'Poor GPS Accuracy. Measurement Auto-Paused.'**
+  String get poorGpsAccuracy;
+
+  /// No description provided for @gpsWaiting.
+  ///
+  /// In en, this message translates to:
+  /// **'Waiting'**
+  String get gpsWaiting;
+
+  /// No description provided for @gpsGood.
+  ///
+  /// In en, this message translates to:
+  /// **'Good'**
+  String get gpsGood;
+
+  /// No description provided for @gpsPoor.
+  ///
+  /// In en, this message translates to:
+  /// **'Poor'**
+  String get gpsPoor;
+
+  /// No description provided for @gpsLost.
+  ///
+  /// In en, this message translates to:
+  /// **'Lost'**
+  String get gpsLost;
+
+  /// No description provided for @gpsNoPermission.
+  ///
+  /// In en, this message translates to:
+  /// **'No Permission'**
+  String get gpsNoPermission;
+
+  /// No description provided for @measurementComplete.
+  ///
+  /// In en, this message translates to:
+  /// **'Measurement Complete'**
+  String get measurementComplete;
+
+  /// No description provided for @boundaryPointsRecorded.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} boundary points recorded'**
+  String boundaryPointsRecorded(int count);
+
+  /// No description provided for @measurementResults.
+  ///
+  /// In en, this message translates to:
+  /// **'Measurement Results'**
+  String get measurementResults;
+
+  /// No description provided for @saveField.
+  ///
+  /// In en, this message translates to:
+  /// **'SAVE FIELD'**
+  String get saveField;
+
+  /// No description provided for @discard.
+  ///
+  /// In en, this message translates to:
+  /// **'DISCARD'**
+  String get discard;
+
+  /// No description provided for @saveMeasurement.
+  ///
+  /// In en, this message translates to:
+  /// **'Save Measurement'**
+  String get saveMeasurement;
+
+  /// No description provided for @fieldName.
+  ///
+  /// In en, this message translates to:
+  /// **'Field Name'**
+  String get fieldName;
+
+  /// No description provided for @fieldNameHint.
+  ///
+  /// In en, this message translates to:
+  /// **'e.g. North Farm Plot'**
+  String get fieldNameHint;
+
+  /// No description provided for @fieldNameRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter a field name'**
+  String get fieldNameRequired;
+
+  /// No description provided for @fieldSavedSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Field \"{name}\" saved successfully!'**
+  String fieldSavedSuccess(String name);
+
+  /// No description provided for @noMeasurementData.
+  ///
+  /// In en, this message translates to:
+  /// **'No measurement data available.'**
+  String get noMeasurementData;
+
+  /// No description provided for @searchFields.
+  ///
+  /// In en, this message translates to:
+  /// **'Search fields...'**
+  String get searchFields;
+
+  /// No description provided for @noFieldsYet.
+  ///
+  /// In en, this message translates to:
+  /// **'No saved fields yet.\nMeasure a field to get started!'**
+  String get noFieldsYet;
+
+  /// No description provided for @noFieldsMatching.
+  ///
+  /// In en, this message translates to:
+  /// **'No fields matching \"{query}\"'**
+  String noFieldsMatching(String query);
+
+  /// No description provided for @deleteField.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete Field?'**
+  String get deleteField;
+
+  /// No description provided for @deleteFieldConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to delete \"{name}\"? This action cannot be undone.'**
+  String deleteFieldConfirm(String name);
+
+  /// No description provided for @fieldDeleted.
+  ///
+  /// In en, this message translates to:
+  /// **'\"{name}\" deleted'**
+  String fieldDeleted(String name);
+
+  /// No description provided for @fieldNotFound.
+  ///
+  /// In en, this message translates to:
+  /// **'Field not found.'**
+  String get fieldNotFound;
+
+  /// No description provided for @measuredOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Measured on {date}'**
+  String measuredOn(String date);
+
+  /// No description provided for @boundaryPoints.
+  ///
+  /// In en, this message translates to:
+  /// **'Boundary Points'**
+  String get boundaryPoints;
+
+  /// No description provided for @tapMapInstruction.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap anywhere on the map to add a boundary point. Tap a point to delete it.'**
+  String get tapMapInstruction;
+
+  /// No description provided for @waitingForGps.
+  ///
+  /// In en, this message translates to:
+  /// **'Waiting for GPS...'**
+  String get waitingForGps;
+
+  /// No description provided for @downloadOffline.
+  ///
+  /// In en, this message translates to:
+  /// **'Download visible area for offline use'**
+  String get downloadOffline;
+
+  /// No description provided for @downloadingMap.
+  ///
+  /// In en, this message translates to:
+  /// **'Downloading Map Area...'**
+  String get downloadingMap;
+
+  /// No description provided for @onboardingTitle1.
+  ///
+  /// In en, this message translates to:
+  /// **'Map Your Fields Offline'**
+  String get onboardingTitle1;
+
+  /// No description provided for @onboardingDesc1.
+  ///
+  /// In en, this message translates to:
+  /// **'Measure the exact area of your land without needing an internet connection.'**
+  String get onboardingDesc1;
+
+  /// No description provided for @onboardingTitle2.
+  ///
+  /// In en, this message translates to:
+  /// **'Walk the Perimeter'**
+  String get onboardingTitle2;
+
+  /// No description provided for @onboardingDesc2.
+  ///
+  /// In en, this message translates to:
+  /// **'Use GPS mode to physically walk around your field. The app will automatically drop boundary points and calculate the area.'**
+  String get onboardingDesc2;
+
+  /// No description provided for @onboardingTitle3.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap to Draw Boundaries'**
+  String get onboardingTitle3;
+
+  /// No description provided for @onboardingDesc3.
+  ///
+  /// In en, this message translates to:
+  /// **'Use Manual mode to simply tap the corners of your field on the map to get instant area calculations.'**
+  String get onboardingDesc3;
+
+  /// No description provided for @skip.
+  ///
+  /// In en, this message translates to:
+  /// **'SKIP'**
+  String get skip;
+
+  /// No description provided for @next.
+  ///
+  /// In en, this message translates to:
+  /// **'NEXT'**
+  String get next;
+
+  /// No description provided for @getStarted.
+  ///
+  /// In en, this message translates to:
+  /// **'GET STARTED'**
+  String get getStarted;
 }
 
 class _AppLocalizationsDelegate

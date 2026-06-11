@@ -179,4 +179,180 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get loading => 'በመጫን ላይ…';
+
+  @override
+  String get measurementMode => 'የመለኪያ ሁነታ';
+
+  @override
+  String get howToMeasure => 'መሬትዎን እንዴት መለካት ይፈልጋሉ?';
+
+  @override
+  String get gpsMeasurementDesc =>
+      'በመሬትዎ ዙሪያ ይራመዱ። መተግበሪያው ቦታዎን ተጠቅሞ የድንበር ነጥቦችን በራስ-ሰር ያስቀምጣል እና ትክክለኛውን ስፋት ያሰላል።';
+
+  @override
+  String get manualMeasurementDesc =>
+      'የመሬትዎን ድንበሮች በካርታ ላይ በመንካት ይሳሉ። የመሬትዎን ቅርጽ ቀድሞ ካወቁ ተስማሚ ነው።';
+
+  @override
+  String get area => 'ስፋት';
+
+  @override
+  String get points => 'ነጥቦች';
+
+  @override
+  String get perimeter => 'ዙሪያ';
+
+  @override
+  String get startWalking => 'መራመድ ጀምር';
+
+  @override
+  String get pause => 'ቆም';
+
+  @override
+  String get resume => 'ቀጥል';
+
+  @override
+  String get undo => 'መልስ';
+
+  @override
+  String get finish => 'ጨርስ';
+
+  @override
+  String get clearAll => 'ሁሉንም አጽዳ';
+
+  @override
+  String get gpsSignalRestored => 'የGPS ምልክት ተመልሷል። ቀጥሏል።';
+
+  @override
+  String get poorGpsAccuracy => 'ደካማ GPS ትክክለኛነት። መለኪያ በራስ-ሰር ቆመ።';
+
+  @override
+  String get gpsWaiting => 'በመጠበቅ ላይ';
+
+  @override
+  String get gpsGood => 'ጥሩ';
+
+  @override
+  String get gpsPoor => 'ደካማ';
+
+  @override
+  String get gpsLost => 'ጠፋ';
+
+  @override
+  String get gpsNoPermission => 'ፈቃድ የለም';
+
+  @override
+  String get measurementComplete => 'መለኪያ ተጠናቋል';
+
+  @override
+  String boundaryPointsRecorded(int count) {
+    return '$count የድንበር ነጥቦች ተመዝግበዋል';
+  }
+
+  @override
+  String get measurementResults => 'የመለኪያ ውጤቶች';
+
+  @override
+  String get saveField => 'መሬት አስቀምጥ';
+
+  @override
+  String get discard => 'ጣል';
+
+  @override
+  String get saveMeasurement => 'መለኪያ አስቀምጥ';
+
+  @override
+  String get fieldName => 'የመሬት ስም';
+
+  @override
+  String get fieldNameHint => 'ለምሳሌ ሰሜን እርሻ';
+
+  @override
+  String get fieldNameRequired => 'እባክዎ የመሬት ስም ያስገቡ';
+
+  @override
+  String fieldSavedSuccess(String name) {
+    return 'መሬት \"$name\" በተሳካ ሁኔታ ተቀምጧል!';
+  }
+
+  @override
+  String get noMeasurementData => 'የመለኪያ ውሂብ የለም።';
+
+  @override
+  String get searchFields => 'መሬቶችን ፈልግ...';
+
+  @override
+  String get noFieldsYet => 'ገና የተቀመጡ መሬቶች የሉም።\nለመጀመር መሬት ይለኩ!';
+
+  @override
+  String noFieldsMatching(String query) {
+    return 'ከ\"$query\" ጋር የሚዛመድ መሬት የለም';
+  }
+
+  @override
+  String get deleteField => 'መሬት ይሰረዝ?';
+
+  @override
+  String deleteFieldConfirm(String name) {
+    return 'እርግጠኛ ነዎት \"$name\" መሰረዝ ይፈልጋሉ? ይህ ድርጊት ሊቀለበስ አይችልም።';
+  }
+
+  @override
+  String fieldDeleted(String name) {
+    return '\"$name\" ተሰርዟል';
+  }
+
+  @override
+  String get fieldNotFound => 'መሬት አልተገኘም።';
+
+  @override
+  String measuredOn(String date) {
+    return 'በ$date ተለክቷል';
+  }
+
+  @override
+  String get boundaryPoints => 'የድንበር ነጥቦች';
+
+  @override
+  String get tapMapInstruction =>
+      'የድንበር ነጥብ ለማከል ካርታ ላይ የትም ቦታ ይንኩ። ነጥብ ለማጥፋት ይንኩት።';
+
+  @override
+  String get waitingForGps => 'GPS በመጠበቅ ላይ...';
+
+  @override
+  String get downloadOffline => 'ያለ በይነመረብ ለመጠቀም የሚታየውን አካባቢ አውርድ';
+
+  @override
+  String get downloadingMap => 'ካርታ በማውረድ ላይ...';
+
+  @override
+  String get onboardingTitle1 => 'መሬትዎን ያለ በይነመረብ ያስተዳድሩ';
+
+  @override
+  String get onboardingDesc1 => 'ያለ የበይነመረብ ግንኙነት የመሬትዎን ትክክለኛ ስፋት ይለኩ።';
+
+  @override
+  String get onboardingTitle2 => 'ዙሪያውን ይራመዱ';
+
+  @override
+  String get onboardingDesc2 =>
+      'የGPS ሁነታን ተጠቅመው በመሬትዎ ዙሪያ ይራመዱ። መተግበሪያው የድንበር ነጥቦችን ያስቀምጣል እና ስፋቱን ያሰላል።';
+
+  @override
+  String get onboardingTitle3 => 'በመንካት ድንበሮችን ይሳሉ';
+
+  @override
+  String get onboardingDesc3 =>
+      'የእጅ ሁነታን ተጠቅመው በካርታ ላይ ማዕዘኖቹን በመንካት ፈጣን ስፋት ስሌት ያግኙ።';
+
+  @override
+  String get skip => 'ዝለል';
+
+  @override
+  String get next => 'ቀጥል';
+
+  @override
+  String get getStarted => 'ጀምር';
 }

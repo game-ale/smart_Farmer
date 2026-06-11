@@ -8,6 +8,7 @@ import 'package:smart_gps_area/core/gis/coordinate.dart';
 import 'package:smart_gps_area/core/gis/offline_tile_provider.dart';
 import 'package:smart_gps_area/features/field_measurement/presentation/bloc/measurement/measurement_bloc.dart';
 import 'package:smart_gps_area/injection/injection_container.dart';
+import 'package:smart_gps_area/l10n/app_localizations.dart';
 
 class ManualMeasurementPage extends StatefulWidget {
   const ManualMeasurementPage({super.key});
@@ -42,10 +43,11 @@ class _ManualMeasurementPageState extends State<ManualMeasurementPage> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return BlocProvider.value(
       value: _measurementBloc,
       child: Scaffold(
-        appBar: AppBar(title: const Text('Manual Measurement')),
+        appBar: AppBar(title: Text(l10n.manualMeasurement)),
         body: Stack(children: [_buildMap(), _buildMeasurementOverlay()]),
         bottomNavigationBar: _buildBottomControls(),
       ),
@@ -118,6 +120,7 @@ class _ManualMeasurementPageState extends State<ManualMeasurementPage> {
   Widget _buildMeasurementOverlay() {
     return BlocBuilder<MeasurementBloc, MeasurementState>(
       builder: (context, state) {
+        final l10n = AppLocalizations.of(context)!;
         if (state.points.isEmpty) {
           return Positioned(
             top: 16,
@@ -127,7 +130,7 @@ class _ManualMeasurementPageState extends State<ManualMeasurementPage> {
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Text(
-                  'Tap anywhere on the map to add a boundary point. Tap a point to delete it.',
+                  l10n.tapMapInstruction,
                   textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.bodyMedium,
                 ),
@@ -150,22 +153,22 @@ class _ManualMeasurementPageState extends State<ManualMeasurementPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      const Text(
-                        'Area',
-                        style: TextStyle(fontWeight: FontWeight.bold),
+                      Text(
+                        l10n.area,
+                        style: const TextStyle(fontWeight: FontWeight.bold),
                       ),
-                      Text('\${state.areaSqMeters.toStringAsFixed(2)} m²'),
+                      Text('${state.areaSqMeters.toStringAsFixed(2)} m²'),
                     ],
                   ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      const Text(
-                        'Points',
-                        style: TextStyle(fontWeight: FontWeight.bold),
+                      Text(
+                        l10n.points,
+                        style: const TextStyle(fontWeight: FontWeight.bold),
                       ),
-                      Text('\${state.points.length}'),
+                      Text('${state.points.length}'),
                     ],
                   ),
                 ],
@@ -180,6 +183,7 @@ class _ManualMeasurementPageState extends State<ManualMeasurementPage> {
   Widget _buildBottomControls() {
     return BlocBuilder<MeasurementBloc, MeasurementState>(
       builder: (context, state) {
+        final l10n = AppLocalizations.of(context)!;
         return SafeArea(
           child: Container(
             padding: const EdgeInsets.all(16.0),
@@ -192,7 +196,7 @@ class _ManualMeasurementPageState extends State<ManualMeasurementPage> {
                     Expanded(
                       child: OutlinedButton.icon(
                         icon: const Icon(Icons.undo),
-                        label: const Text('UNDO'),
+                        label: Text(l10n.undo),
                         onPressed: state.points.isEmpty
                             ? null
                             : () => _measurementBloc.add(
@@ -204,7 +208,7 @@ class _ManualMeasurementPageState extends State<ManualMeasurementPage> {
                     Expanded(
                       child: OutlinedButton.icon(
                         icon: const Icon(Icons.delete_sweep),
-                        label: const Text('CLEAR ALL'),
+                        label: Text(l10n.clearAll),
                         onPressed: state.points.isEmpty
                             ? null
                             : () => _measurementBloc.add(
@@ -217,7 +221,7 @@ class _ManualMeasurementPageState extends State<ManualMeasurementPage> {
                 const SizedBox(height: 8),
                 ElevatedButton.icon(
                   icon: const Icon(Icons.check),
-                  label: const Text('FINISH'),
+                  label: Text(l10n.finish),
                   style: ElevatedButton.styleFrom(
                     minimumSize: const Size(double.infinity, 50),
                   ),

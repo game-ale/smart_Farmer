@@ -1,39 +1,39 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:smart_gps_area/core/constants/route_constants.dart';
+import 'package:smart_gps_area/l10n/app_localizations.dart';
 
 class MeasurePage extends StatelessWidget {
   const MeasurePage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Scaffold(
-      appBar: AppBar(title: const Text('Measurement Mode')),
+      appBar: AppBar(title: Text(l10n.measurementMode)),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Text(
-              'How do you want to measure your field?',
+              l10n.howToMeasure,
               style: Theme.of(
                 context,
               ).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 24),
             _MeasurementModeCard(
-              title: 'GPS Measurement',
-              description:
-                  'Physically walk the perimeter of your field. The app will use your location to automatically drop boundary points and calculate the exact area.',
+              title: l10n.gpsMeasurement,
+              description: l10n.gpsMeasurementDesc,
               icon: Icons.directions_walk,
               color: Colors.blue,
               onTap: () => context.push(RouteConstants.gpsMeasurement),
             ),
             const SizedBox(height: 16),
             _MeasurementModeCard(
-              title: 'Manual Measurement',
-              description:
-                  'Draw the field boundaries yourself by tapping directly on the map. Perfect if you already know your field shape on a satellite view.',
+              title: l10n.manualMeasurement,
+              description: l10n.manualMeasurementDesc,
               icon: Icons.touch_app,
               color: Colors.green,
               onTap: () => context.push(RouteConstants.manualMeasurement),

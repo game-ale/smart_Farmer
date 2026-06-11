@@ -63,5 +63,67 @@
   "error": "ስህተት",
   "retry": "ድጋሚ ሞክር",
   "noData": "ምንም ውሂብ የለም",
-  "loading": "በመጫን ላይ…"
+  "loading": "በመጫን ላይ…",
+
+  "measurementMode": "የመለኪያ ሁነታ",
+  "howToMeasure": "መሬትዎን እንዴት መለካት ይፈልጋሉ?",
+  "gpsMeasurementDesc": "በመሬትዎ ዙሪያ ይራመዱ። መተግበሪያው ቦታዎን ተጠቅሞ የድንበር ነጥቦችን በራስ-ሰር ያስቀምጣል እና ትክክለኛውን ስፋት ያሰላል።",
+  "manualMeasurementDesc": "የመሬትዎን ድንበሮች በካርታ ላይ በመንካት ይሳሉ። የመሬትዎን ቅርጽ ቀድሞ ካወቁ ተስማሚ ነው።",
+
+  "area": "ስፋት",
+  "points": "ነጥቦች",
+  "perimeter": "ዙሪያ",
+  "startWalking": "መራመድ ጀምር",
+  "pause": "ቆም",
+  "resume": "ቀጥል",
+  "undo": "መልስ",
+  "finish": "ጨርስ",
+  "clearAll": "ሁሉንም አጽዳ",
+
+  "gpsSignalRestored": "የGPS ምልክት ተመልሷል። ቀጥሏል።",
+  "poorGpsAccuracy": "ደካማ GPS ትክክለኛነት። መለኪያ በራስ-ሰር ቆመ።",
+  "gpsWaiting": "በመጠበቅ ላይ",
+  "gpsGood": "ጥሩ",
+  "gpsPoor": "ደካማ",
+  "gpsLost": "ጠፋ",
+  "gpsNoPermission": "ፈቃድ የለም",
+
+  "measurementComplete": "መለኪያ ተጠናቋል",
+  "boundaryPointsRecorded": "{count} የድንበር ነጥቦች ተመዝግበዋል",
+  "measurementResults": "የመለኪያ ውጤቶች",
+  "saveField": "መሬት አስቀምጥ",
+  "discard": "ጣል",
+  "saveMeasurement": "መለኪያ አስቀምጥ",
+  "fieldName": "የመሬት ስም",
+  "fieldNameHint": "ለምሳሌ ሰሜን እርሻ",
+  "fieldNameRequired": "እባክዎ የመሬት ስም ያስገቡ",
+  "fieldSavedSuccess": "መሬት \"{name}\" በተሳካ ሁኔታ ተቀምጧል!",
+  "noMeasurementData": "የመለኪያ ውሂብ የለም።",
+
+  "searchFields": "መሬቶችን ፈልግ...",
+  "noFieldsYet": "ገና የተቀመጡ መሬቶች የሉም።\nለመጀመር መሬት ይለኩ!",
+  "noFieldsMatching": "ከ\"{query}\" ጋር የሚዛመድ መሬት የለም",
+  "deleteField": "መሬት ይሰረዝ?",
+  "deleteFieldConfirm": "እርግጠኛ ነዎት \"{name}\" መሰረዝ ይፈልጋሉ? ይህ ድርጊት ሊቀለበስ አይችልም።",
+  "fieldDeleted": "\"{name}\" ተሰርዟል",
+
+  "fieldNotFound": "መሬት አልተገኘም።",
+  "measuredOn": "በ{date} ተለክቷል",
+  "boundaryPoints": "የድንበር ነጥቦች",
+
+  "tapMapInstruction": "የድንበር ነጥብ ለማከል ካርታ ላይ የትም ቦታ ይንኩ። ነጥብ ለማጥፋት ይንኩት።",
+
+  "waitingForGps": "GPS በመጠበቅ ላይ...",
+  "downloadOffline": "ያለ በይነመረብ ለመጠቀም የሚታየውን አካባቢ አውርድ",
+  "downloadingMap": "ካርታ በማውረድ ላይ...",
+
+  "onboardingTitle1": "መሬትዎን ያለ በይነመረብ ያስተዳድሩ",
+  "onboardingDesc1": "ያለ የበይነመረብ ግንኙነት የመሬትዎን ትክክለኛ ስፋት ይለኩ።",
+  "onboardingTitle2": "ዙሪያውን ይራመዱ",
+  "onboardingDesc2": "የGPS ሁነታን ተጠቅመው በመሬትዎ ዙሪያ ይራመዱ። መተግበሪያው የድንበር ነጥቦችን ያስቀምጣል እና ስፋቱን ያሰላል።",
+  "onboardingTitle3": "በመንካት ድንበሮችን ይሳሉ",
+  "onboardingDesc3": "የእጅ ሁነታን ተጠቅመው በካርታ ላይ ማዕዘኖቹን በመንካት ፈጣን ስፋት ስሌት ያግኙ።",
+  "skip": "ዝለል",
+  "next": "ቀጥል",
+  "getStarted": "ጀምር"
 }

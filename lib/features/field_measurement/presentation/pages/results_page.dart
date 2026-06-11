@@ -6,6 +6,7 @@ import 'package:smart_gps_area/features/field_measurement/domain/entities/field_
 import 'package:smart_gps_area/features/field_measurement/domain/usecases/save_field_usecase.dart';
 import 'package:smart_gps_area/features/field_measurement/presentation/bloc/measurement/measurement_bloc.dart';
 import 'package:smart_gps_area/injection/injection_container.dart';
+import 'package:smart_gps_area/l10n/app_localizations.dart';
 
 class ResultsPage extends StatelessWidget {
   const ResultsPage({super.key, this.measurementState});
@@ -15,10 +16,11 @@ class ResultsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final state = measurementState;
+    final l10n = AppLocalizations.of(context)!;
     if (state is! MeasurementState || state.points.length < 3) {
       return Scaffold(
-        appBar: AppBar(title: const Text('Results')),
-        body: const Center(child: Text('No measurement data available.')),
+        appBar: AppBar(title: Text(l10n.results)),
+        body: Center(child: Text(l10n.noMeasurementData)),
       );
     }
 
@@ -27,7 +29,7 @@ class ResultsPage extends StatelessWidget {
     final perimeterMeters = state.perimeterMeters;
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Measurement Results')),
+      appBar: AppBar(title: Text(l10n.measurementResults)),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -46,12 +48,12 @@ class ResultsPage extends StatelessWidget {
                     ),
                     const SizedBox(height: 12),
                     Text(
-                      'Measurement Complete',
+                      l10n.measurementComplete,
                       style: Theme.of(context).textTheme.headlineSmall,
                     ),
                     const SizedBox(height: 4),
                     Text(
-                      '\${state.points.length} boundary points recorded',
+                      l10n.boundaryPointsRecorded(state.points.length),
                       style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                         color: Theme.of(context).colorScheme.onSurfaceVariant,
                       ),
@@ -64,7 +66,7 @@ class ResultsPage extends StatelessWidget {
 
             // Area in all 5 units
             Text(
-              'Area',
+              l10n.area,
               style: Theme.of(
                 context,
               ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
@@ -72,40 +74,40 @@ class ResultsPage extends StatelessWidget {
             const SizedBox(height: 8),
             _UnitCard(
               icon: Icons.square_foot,
-              label: 'Square Meters',
+              label: l10n.unitSquareMeters,
               value: areaSqMeters.toStringAsFixed(2),
-              unit: 'm²',
+              unit: l10n.unitShortSqm,
             ),
             _UnitCard(
               icon: Icons.landscape,
-              label: 'Hectares',
+              label: l10n.unitHectares,
               value: converter.toHectares(areaSqMeters).toStringAsFixed(4),
-              unit: 'ha',
+              unit: l10n.unitShortHa,
             ),
             _UnitCard(
               icon: Icons.terrain,
-              label: 'Acres',
+              label: l10n.unitAcres,
               value: converter.toAcres(areaSqMeters).toStringAsFixed(4),
-              unit: 'ac',
+              unit: l10n.unitShortAcre,
             ),
             _UnitCard(
               icon: Icons.grid_on,
-              label: 'Timad',
+              label: l10n.unitTimad,
               value: converter.toTimad(areaSqMeters).toStringAsFixed(4),
-              unit: 'timad',
+              unit: l10n.unitShortTimad,
             ),
             _UnitCard(
               icon: Icons.grid_view,
-              label: 'Kert',
+              label: l10n.unitKert,
               value: converter.toKert(areaSqMeters).toStringAsFixed(2),
-              unit: 'kert',
+              unit: l10n.unitShortKert,
             ),
 
             const SizedBox(height: 16),
 
             // Perimeter
             Text(
-              'Perimeter',
+              l10n.perimeter,
               style: Theme.of(
                 context,
               ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
@@ -113,7 +115,7 @@ class ResultsPage extends StatelessWidget {
             const SizedBox(height: 8),
             _UnitCard(
               icon: Icons.straighten,
-              label: 'Perimeter',
+              label: l10n.perimeter,
               value: perimeterMeters.toStringAsFixed(2),
               unit: 'm',
             ),
@@ -123,7 +125,7 @@ class ResultsPage extends StatelessWidget {
             // Actions
             ElevatedButton.icon(
               icon: const Icon(Icons.save),
-              label: const Text('SAVE FIELD'),
+              label: Text(l10n.saveField),
               style: ElevatedButton.styleFrom(
                 minimumSize: const Size(double.infinity, 50),
               ),
@@ -132,7 +134,7 @@ class ResultsPage extends StatelessWidget {
             const SizedBox(height: 8),
             OutlinedButton.icon(
               icon: const Icon(Icons.delete_outline),
-              label: const Text('DISCARD'),
+              label: Text(l10n.discard),
               style: OutlinedButton.styleFrom(
                 minimumSize: const Size(double.infinity, 50),
               ),
@@ -149,6 +151,7 @@ class ResultsPage extends StatelessWidget {
   void _showSaveDialog(BuildContext context, MeasurementState state) {
     final nameController = TextEditingController();
     final formKey = GlobalKey<FormState>();
+    final l10n = AppLocalizations.of(context)!;
 
     showModalBottomSheet(
       context: context,
@@ -168,22 +171,22 @@ class ResultsPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Text(
-                  'Save Measurement',
+                  l10n.saveMeasurement,
                   style: Theme.of(bottomSheetContext).textTheme.titleLarge,
                 ),
                 const SizedBox(height: 16),
                 TextFormField(
                   controller: nameController,
                   autofocus: true,
-                  decoration: const InputDecoration(
-                    labelText: 'Field Name',
-                    hintText: 'e.g. North Farm Plot',
-                    border: OutlineInputBorder(),
-                    prefixIcon: Icon(Icons.edit),
+                  decoration: InputDecoration(
+                    labelText: l10n.fieldName,
+                    hintText: l10n.fieldNameHint,
+                    border: const OutlineInputBorder(),
+                    prefixIcon: const Icon(Icons.edit),
                   ),
                   validator: (value) {
                     if (value == null || value.trim().isEmpty) {
-                      return 'Please enter a field name';
+                      return l10n.fieldNameRequired;
                     }
                     return null;
                   },
@@ -191,7 +194,7 @@ class ResultsPage extends StatelessWidget {
                 const SizedBox(height: 16),
                 ElevatedButton.icon(
                   icon: const Icon(Icons.check),
-                  label: const Text('SAVE'),
+                  label: Text(l10n.save),
                   style: ElevatedButton.styleFrom(
                     minimumSize: const Size(double.infinity, 50),
                   ),
@@ -216,7 +219,7 @@ class ResultsPage extends StatelessWidget {
                           ..showSnackBar(
                             SnackBar(
                               content: Text(
-                                'Field "\${field.name}" saved successfully!',
+                                l10n.fieldSavedSuccess(field.name),
                               ),
                             ),
                           );

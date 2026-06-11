@@ -171,7 +171,7 @@ class _OfflineTileImageProvider
       final response = await request.close();
 
       if (response.statusCode != 200) {
-        throw Exception('HTTP \${response.statusCode} for tile $url');
+        throw Exception('HTTP ${response.statusCode} for tile $url');
       }
 
       final bytes = await consolidateHttpClientResponseBytes(

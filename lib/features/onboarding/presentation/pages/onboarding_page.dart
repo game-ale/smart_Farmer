@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:smart_gps_area/core/constants/route_constants.dart';
 import 'package:smart_gps_area/core/storage/hive_box_names.dart';
+import 'package:smart_gps_area/l10n/app_localizations.dart';
 
 class OnboardingPage extends StatefulWidget {
   const OnboardingPage({super.key});
@@ -15,26 +16,25 @@ class _OnboardingPageState extends State<OnboardingPage> {
   final PageController _pageController = PageController();
   int _currentPage = 0;
 
-  final List<_OnboardingSlide> _slides = [
-    const _OnboardingSlide(
-      title: 'Map Your Fields Offline',
-      description:
-          'Measure the exact area of your land without needing an internet connection.',
-      icon: Icons.map,
-    ),
-    const _OnboardingSlide(
-      title: 'Walk the Perimeter',
-      description:
-          'Use GPS mode to physically walk around your field. The app will automatically drop boundary points and calculate the area.',
-      icon: Icons.gps_fixed,
-    ),
-    const _OnboardingSlide(
-      title: 'Tap to Draw Boundaries',
-      description:
-          'Use Manual mode to simply tap the corners of your field on the map to get instant area calculations.',
-      icon: Icons.touch_app,
-    ),
-  ];
+  List<_OnboardingSlide> _getSlides(AppLocalizations l10n) {
+    return [
+      _OnboardingSlide(
+        title: l10n.onboardingTitle1,
+        description: l10n.onboardingDesc1,
+        icon: Icons.map,
+      ),
+      _OnboardingSlide(
+        title: l10n.onboardingTitle2,
+        description: l10n.onboardingDesc2,
+        icon: Icons.gps_fixed,
+      ),
+      _OnboardingSlide(
+        title: l10n.onboardingTitle3,
+        description: l10n.onboardingDesc3,
+        icon: Icons.touch_app,
+      ),
+    ];
+  }
 
   void _finishOnboarding() {
     final prefsBox = Hive.box<Object>(HiveBoxNames.preferences);
@@ -50,6 +50,8 @@ class _OnboardingPageState extends State<OnboardingPage> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    final slides = _getSlides(l10n);
     return Scaffold(
       body: SafeArea(
         child: Column(
@@ -59,7 +61,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
               alignment: Alignment.topRight,
               child: TextButton(
                 onPressed: _finishOnboarding,
-                child: const Text('SKIP'),
+                child: Text(l10n.skip),
               ),
             ),
 
@@ -70,9 +72,9 @@ class _OnboardingPageState extends State<OnboardingPage> {
                 onPageChanged: (index) {
                   setState(() => _currentPage = index);
                 },
-                itemCount: _slides.length,
+                itemCount: slides.length,
                 itemBuilder: (context, index) {
-                  final slide = _slides[index];
+                  final slide = slides[index];
                   return Padding(
                     padding: const EdgeInsets.all(40.0),
                     child: Column(
@@ -116,7 +118,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                 children: [
                   Row(
                     children: List.generate(
-                      _slides.length,
+                      slides.length,
                       (index) => Container(
                         margin: const EdgeInsets.only(right: 8),
                         height: 8,
@@ -138,7 +140,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                       ),
                     ),
                     onPressed: () {
-                      if (_currentPage == _slides.length - 1) {
+                      if (_currentPage == slides.length - 1) {
                         _finishOnboarding();
                       } else {
                         _pageController.nextPage(
@@ -148,9 +150,9 @@ class _OnboardingPageState extends State<OnboardingPage> {
                       }
                     },
                     child: Text(
-                      _currentPage == _slides.length - 1
-                          ? 'GET STARTED'
-                          : 'NEXT',
+                      _currentPage == slides.length - 1
+                          ? l10n.getStarted
+                          : l10n.next,
                     ),
                   ),
                 ],
