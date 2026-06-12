@@ -79,7 +79,7 @@ class AppLocalizationsOm extends AppLocalizations {
   String get unitHectares => 'Hektaara';
 
   @override
-  String get unitMide => 'Midddee';
+  String get unitMide => 'Miiddee';
 
   @override
   String get unitShortSqm => 'm²';
@@ -88,7 +88,7 @@ class AppLocalizationsOm extends AppLocalizations {
   String get unitShortHa => 'ha';
 
   @override
-  String get unitShortMide => 'midddee';
+  String get unitShortMide => 'miiddee';
 
   @override
   String get measure => 'Safari';
