@@ -78,13 +78,7 @@ class AppLocalizationsAm extends AppLocalizations {
   String get unitHectares => 'ሄክታር';
 
   @override
-  String get unitAcres => 'ኤከር';
-
-  @override
-  String get unitTimad => 'ጥማድ';
-
-  @override
-  String get unitKert => 'ቀርት';
+  String get unitMide => 'ሚዴ';
 
   @override
   String get unitShortSqm => 'ሜ²';
@@ -93,13 +87,7 @@ class AppLocalizationsAm extends AppLocalizations {
   String get unitShortHa => 'ሄክታር';
 
   @override
-  String get unitShortAcre => 'ኤከር';
-
-  @override
-  String get unitShortTimad => 'ጥማድ';
-
-  @override
-  String get unitShortKert => 'ቀርት';
+  String get unitShortMide => 'ሚዴ';
 
   @override
   String get measure => 'መለካት';

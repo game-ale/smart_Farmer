@@ -238,23 +238,11 @@ abstract class AppLocalizations {
   /// **'Hectares'**
   String get unitHectares;
 
-  /// No description provided for @unitAcres.
+  /// No description provided for @unitMide.
   ///
   /// In en, this message translates to:
-  /// **'Acres'**
-  String get unitAcres;
-
-  /// No description provided for @unitTimad.
-  ///
-  /// In en, this message translates to:
-  /// **'Timad'**
-  String get unitTimad;
-
-  /// No description provided for @unitKert.
-  ///
-  /// In en, this message translates to:
-  /// **'Kert'**
-  String get unitKert;
+  /// **'Mide'**
+  String get unitMide;
 
   /// No description provided for @unitShortSqm.
   ///
@@ -268,23 +256,11 @@ abstract class AppLocalizations {
   /// **'ha'**
   String get unitShortHa;
 
-  /// No description provided for @unitShortAcre.
+  /// No description provided for @unitShortMide.
   ///
   /// In en, this message translates to:
-  /// **'ac'**
-  String get unitShortAcre;
-
-  /// No description provided for @unitShortTimad.
-  ///
-  /// In en, this message translates to:
-  /// **'timad'**
-  String get unitShortTimad;
-
-  /// No description provided for @unitShortKert.
-  ///
-  /// In en, this message translates to:
-  /// **'kert'**
-  String get unitShortKert;
+  /// **'mide'**
+  String get unitShortMide;
 
   /// No description provided for @measure.
   ///

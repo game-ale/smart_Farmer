@@ -79,13 +79,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get unitHectares => 'Hectares';
 
   @override
-  String get unitAcres => 'Acres';
-
-  @override
-  String get unitTimad => 'Timad';
-
-  @override
-  String get unitKert => 'Kert';
+  String get unitMide => 'Mide';
 
   @override
   String get unitShortSqm => 'm²';
@@ -94,13 +88,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get unitShortHa => 'ha';
 
   @override
-  String get unitShortAcre => 'ac';
-
-  @override
-  String get unitShortTimad => 'timad';
-
-  @override
-  String get unitShortKert => 'kert';
+  String get unitShortMide => 'mide';
 
   @override
   String get measure => 'Measure';

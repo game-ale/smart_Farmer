@@ -6,12 +6,6 @@ class UnitConverter {
   double toHectares(double squareMeters) =>
       squareMeters / UnitConstants.squareMetersPerHectare;
 
-  double toAcres(double squareMeters) =>
-      squareMeters / UnitConstants.squareMetersPerAcre;
-
-  double toTimad(double squareMeters) =>
-      squareMeters / UnitConstants.squareMetersPerTimad;
-
-  double toKert(double squareMeters) =>
-      squareMeters / UnitConstants.squareMetersPerKert;
+  double toMide(double squareMeters) =>
+      squareMeters / UnitConstants.squareMetersPerMide;
 }

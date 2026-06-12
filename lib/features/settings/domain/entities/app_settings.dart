@@ -30,9 +30,7 @@ enum SupportedLanguage {
 enum AreaUnit {
   squareMeters('sqm'),
   hectares('ha'),
-  acres('acre'),
-  timad('timad'),
-  kert('kert');
+  mide('mide');
 
   const AreaUnit(this.code);
 

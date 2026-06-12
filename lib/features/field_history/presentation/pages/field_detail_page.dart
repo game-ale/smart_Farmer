@@ -136,19 +136,9 @@ class _FieldDetailPageState extends State<FieldDetailPage> {
                         '${converter.toHectares(field.areaSqMeters).toStringAsFixed(4)} ${l10n.unitShortHa}',
                   ),
                   _DetailRow(
-                    label: l10n.unitAcres,
+                    label: l10n.unitMide,
                     value:
-                        '${converter.toAcres(field.areaSqMeters).toStringAsFixed(4)} ${l10n.unitShortAcre}',
-                  ),
-                  _DetailRow(
-                    label: l10n.unitTimad,
-                    value:
-                        '${converter.toTimad(field.areaSqMeters).toStringAsFixed(4)} ${l10n.unitShortTimad}',
-                  ),
-                  _DetailRow(
-                    label: l10n.unitKert,
-                    value:
-                        '${converter.toKert(field.areaSqMeters).toStringAsFixed(2)} ${l10n.unitShortKert}',
+                        '${converter.toMide(field.areaSqMeters).toStringAsFixed(4)} ${l10n.unitShortMide}',
                   ),
                   const Divider(height: 24),
                   _DetailRow(

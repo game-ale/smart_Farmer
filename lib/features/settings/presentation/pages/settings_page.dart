@@ -124,8 +124,6 @@ class SettingsPage extends StatelessWidget {
   String _unitLabel(AppLocalizations l10n, AreaUnit unit) => switch (unit) {
     AreaUnit.squareMeters => l10n.unitSquareMeters,
     AreaUnit.hectares => l10n.unitHectares,
-    AreaUnit.acres => l10n.unitAcres,
-    AreaUnit.timad => l10n.unitTimad,
-    AreaUnit.kert => l10n.unitKert,
+    AreaUnit.mide => l10n.unitMide,
   };
 }

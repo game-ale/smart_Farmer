@@ -85,22 +85,10 @@ class ResultsPage extends StatelessWidget {
               unit: l10n.unitShortHa,
             ),
             _UnitCard(
-              icon: Icons.terrain,
-              label: l10n.unitAcres,
-              value: converter.toAcres(areaSqMeters).toStringAsFixed(4),
-              unit: l10n.unitShortAcre,
-            ),
-            _UnitCard(
               icon: Icons.grid_on,
-              label: l10n.unitTimad,
-              value: converter.toTimad(areaSqMeters).toStringAsFixed(4),
-              unit: l10n.unitShortTimad,
-            ),
-            _UnitCard(
-              icon: Icons.grid_view,
-              label: l10n.unitKert,
-              value: converter.toKert(areaSqMeters).toStringAsFixed(2),
-              unit: l10n.unitShortKert,
+              label: l10n.unitMide,
+              value: converter.toMide(areaSqMeters).toStringAsFixed(4),
+              unit: l10n.unitShortMide,
             ),
 
             const SizedBox(height: 16),
